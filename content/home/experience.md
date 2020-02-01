@@ -25,7 +25,7 @@ date_format = "Jan 2006"
   date_start = "2020-01-01"
   date_end = ""
   description = """
-  Completing master's project in partnership with data science team. Using data mining, machine learning, and statistical modeling to identify high-risk patients within disease profiles in order to improve care.
+  Completing master's project in partnership with Intermountain's data science team. Using data mining, machine learning, and statistical modeling to identify high-risk patients within disease profiles in order to improve care.
   """
 
 [[experience]]
@@ -36,7 +36,7 @@ date_format = "Jan 2006"
   date_start = "2019-06-01"
   date_end = "2019-11-16"
   description = """
-  Worked in clinical data integration with a team of data architects Intermountain's enterprise data warehouse, migrating ETL jobs from IBM DataStage to Informatica PowerCenter and making improvements where possible.
+  Worked in clinical data integration with a team of data architects in Intermountain's enterprise data warehouse, migrating ETL jobs from IBM DataStage to Informatica PowerCenter and making improvements where possible.
   """
 
 [[experience]]

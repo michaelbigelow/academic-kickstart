@@ -27,7 +27,7 @@ interests:
 
 education:
   courses:
-  - course: MST in Data Science; big data certificate 
+  - course: MST in Data Science 
     institution: University of Utah College of Science
     year: (December 2020)
   - course: Big Data Certificate 

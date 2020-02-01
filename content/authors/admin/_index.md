@@ -30,9 +30,12 @@ education:
   - course: MST in Data Science; big data certificate 
     institution: University of Utah College of Science
     year: (December 2020)
+<<<<<<< HEAD
   - course: Big Data Certificate 
     institution: University of Utah School of Computing
     year: (December 2020)
+=======
+>>>>>>> 60e7ab682bbb8f0ee02f3f44240d2e4a011a369b
   - course: MM in Jazz Studies
     institution: University of Utah School of Music
     year: 2017

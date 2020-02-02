@@ -34,7 +34,7 @@ Below follow several problems from a graduate course in linear models, together 
 Let $P$ be a projection matrix and let $\lambda$ be an eigenvalue of $P$.  Prove that $\lambda \in \{0,1\}$
 
 ## Solution
-Recall that a projection matrix is \emph{symmetric} and \emph{idempotent}; that is, for a projection matrix $P$, $P'=P$ and $P^2=P$.  For the eigenvector $\mathbf{v}$, we have
+Recall that a projection matrix is $symmetric$ and $idempotent$; that is, for a projection matrix $P$, $P'=P$ and $P^2=P$.  For the eigenvector $\mathbf{v}$, we have
 $$P\mathbf{v} = \lambda \mathbf{v}$$
 by the definition of eigenvalue, which implies that
 $$P^2 \mathbf{v} = \lambda P \mathbf{v} = \lambda^2\mathbf{v}$$
@@ -46,7 +46,7 @@ which only makes sense if $\lambda \in \{0,1\}$.
 
 # Question 2
 Let $X \sim N_3(0,I_3)$. Prove that
-$$\frac{1}{3}[(X_1-X_2)^2 + (X_2-X_3)^2 + (X_1-X_3)^2] \sim \chi^2_2$$
+$$\frac{1}{3}[(X_1-X_2)^2 + (X_2-X_3)^2 + (X_1-X_3)^2] \sim \chi^2_2.$$
 
 ## Solution
 Expanding the above expression yields

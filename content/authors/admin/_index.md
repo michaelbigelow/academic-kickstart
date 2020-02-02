@@ -18,12 +18,15 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: I seek to use data science methods to solve the most interesting problems facing our world today.
 
 interests:
 - mathematics and statistics
 - machine learning
-- synthesized improvisational music
+- population health analytics
+- business intelligence
+- music recommendation systems
+- improvised music
 
 education:
   courses:
@@ -76,4 +79,7 @@ email: ""
 # - Visitors
 ---
 
-In the final year of the Master of Science and Technology in Data Science at the University of Utah, I am mastering mathematical/statistical modeling, machine learning, and data mining, from theory to implementation. I am becoming equally proficient in both Python and R, and further developing the SQL skills and database understanding I gained as a data architect intern at Intermountain Healthcare. In addition to the MST, I am completing the Big Data Certificate through the U of U School of Computing. 
+As I complete my Master of Science and Technology in data science at the University of Utah, I am becoming an expert in mathematical/statistical modeling, machine learning, and data mining, from theory to implementation using both Python and R.
+In addition to the MST, I am completing the Big Data Certificate through the U of U School of Computing. 
+
+I am currently working with Intermountain Healthcare's data science team to build a model identifying patients at above-average risk of adverse health outcomes given their disease profile, in order to mitigate those risks and improve patient care.

@@ -1,0 +1,216 @@
+---
+title: Selected Proofs and Problems from Linear Models
+author: Michael Bigelow
+date: '2019-12-09'
+slug: selected-proofs-and-problems-from-linear-models
+categories:
+  - Linear Models
+tags:
+  - regression
+  - proofs
+  - mathematics
+  - linear algebra
+subtitle: ''
+summary: 'Six key problems and solutions from a graduate course in linear models.'
+authors: [admin]
+lastmod: '2019-12-09T17:56:24-07:00'
+featured: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Below follow several problems from a graduate course in linear models, together with my solutions. Most are proofs, and in general the progression is from linear algebra concepts to construction of linear models given data with certain properties.</p>
+</div>
+<div id="question-1" class="section level1">
+<h1>Question 1</h1>
+<p>Let <span class="math inline">\(P\)</span> be a projection matrix and let <span class="math inline">\(\lambda\)</span> be an eigenvalue of <span class="math inline">\(P\)</span>. Prove that <span class="math inline">\(\lambda \in \{0,1\}\)</span></p>
+<div id="solution" class="section level2">
+<h2>Solution</h2>
+<p>Recall that a projection matrix is  and ; that is, for a projection matrix <span class="math inline">\(P\)</span>, <span class="math inline">\(P&#39;=P\)</span> and <span class="math inline">\(P^2=P\)</span>. For the eigenvector <span class="math inline">\(\mathbf{v}\)</span>, we have
+<span class="math display">\[P\mathbf{v} = \lambda \mathbf{v}\]</span>
+by the definition of eigenvalue, which implies that
+<span class="math display">\[P^2 \mathbf{v} = \lambda P \mathbf{v} = \lambda^2\mathbf{v}\]</span>
+but because <span class="math inline">\(P\)</span> is idempotent,
+<span class="math display">\[P^2\mathbf{v} = P\mathbf{v} = \lambda \mathbf{v}\]</span>
+and since eigenvectors are by definition nonzero, we get
+<span class="math display">\[\lambda^2=\lambda\]</span>
+which only makes sense if <span class="math inline">\(\lambda \in \{0,1\}\)</span>.</p>
+</div>
+</div>
+<div id="question-2" class="section level1">
+<h1>Question 2</h1>
+<p>Let <span class="math inline">\(X \sim N_3(0,I_3)\)</span>. Prove that
+<span class="math display">\[\frac{1}{3}[(X_1-X_2)^2 + (X_2-X_3)^2 + (X_1-X_3)^2] \sim \chi^2_2\]</span></p>
+<div id="solution-1" class="section level2">
+<h2>Solution</h2>
+<p>Expanding the above expression yields
+<span class="math display">\[\frac{1}{3}[2X_1^2 +2X_2^2 +2X_3^2 - 2X_1X_2 -2X_2X_3-2X_1X_3].\]</span>
+Let
+<span class="math display">\[A= \frac{1}{3} \begin{bmatrix} 
+2 &amp; -1 &amp; -1 \\
+-1 &amp; 2 &amp; -1 \\
+-1 &amp; -1 &amp; 2
+\end{bmatrix}.\]</span>
+Then <span class="math inline">\(A\)</span> is the matrix associated to the above quadratic form, which we denote <span class="math inline">\(X&#39;AX\)</span>. We can perform the spectral decomposition
+<span class="math display">\[X&#39;AX = X&#39;PDP&#39;X.\]</span>
+Let <span class="math inline">\(Z=P&#39;X\)</span>. Then we have
+<span class="math display">\[=DZ^2.\]</span>
+But <span class="math inline">\(A\)</span> is idempotent, so we have <span class="math inline">\(A^2 = A\)</span>, which means that all its eigenvalues are either zero or one, and since <span class="math inline">\(X_i \sim N(0,1)\; \forall i\)</span> we know <span class="math inline">\(Z_i^2 \sim \chi^2\)</span>, which means the above is a sum of independent chi-squared random variables:
+<span class="math display">\[=\sum_{i=1}^{3} d_iZ_i^2.\]</span>
+Since <span class="math inline">\(A\)</span> is a projection matrix, <span class="math inline">\(\text{rank}(A) = \text{tr}(A) = 2\)</span> and so it has two eigenvalues <span class="math inline">\(\lambda = 1\)</span> and one eigenvalue <span class="math inline">\(\lambda=0\)</span>. Hence in the expression above, <span class="math inline">\(d_1 = d_2 = 1\)</span> and <span class="math inline">\(d_3=0\)</span>, meaning we have a sum of two independent chi-squared random variables, which is distributed <span class="math inline">\(\chi^2_2\)</span>.</p>
+</div>
+</div>
+<div id="question-3" class="section level1">
+<h1>Question 3</h1>
+<p>Let <span class="math inline">\(T=(T_1, T_2, T_3)&#39;\)</span> with <span class="math inline">\(\mathbf{E}[T] = 0\)</span> and
+<span class="math display">\[\mathbf{Var}(T)=\begin{bmatrix} 
+5 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 0 \\
+3 &amp; 0 &amp; 3
+\end{bmatrix}.\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Let <span class="math inline">\(Z=(Z_1,Z_2)&#39;\)</span> with <span class="math inline">\(Z_1=T_1+T_2\)</span> and <span class="math inline">\(Z_2=T_1+T_2+T_3.\)</span> Find <span class="math inline">\(\mathbf{E}[Z]\)</span> and <span class="math inline">\(\mathbf{Var}[Z]\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A= \bigl[ \begin{smallmatrix} 1 &amp; 1 \\ 1 &amp; 2 \end{smallmatrix} \bigr]\)</span> and <span class="math inline">\(Q = Z&#39;AZ\)</span>. Find <span class="math inline">\(\mathbf{E}[Q]\)</span>.</p></li>
+</ol>
+<div id="solution-2" class="section level2">
+<h2>Solution</h2>
+<ol style="list-style-type: lower-alpha">
+<li>First, let
+<span class="math display">\[B=\begin{bmatrix} 
+1 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 1 
+\end{bmatrix}\]</span>
+then <span class="math inline">\(Z = BT\)</span>, and we have
+<span class="math display">\[\mathbf{E}[Z]=\mathbf{E}[BT]=B\mathbf{E}[T]=B\cdot0=0\]</span>
+<span class="math display">\[\mathbf{Var}[Z] = \mathbf{Var}[BT] =B \mathbf{Var}[T]B&#39;\]</span>
+<span class="math display">\[=\begin{bmatrix} 
+1 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 1 
+\end{bmatrix}\begin{bmatrix} 
+7 &amp; 10 \\
+5 &amp; 5 \\
+3 &amp; 6
+\end{bmatrix} =\begin{bmatrix} 
+12 &amp; 15 \\
+15 &amp; 21  
+\end{bmatrix}.\]</span></li>
+<li><span class="math display">\[\mathbf{E}[Q]=\mathbf{E}[Z&#39;AZ] = tr(A \Sigma)+\mu&#39;A\mu\]</span>
+and from (a) we know that <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\Sigma = \bigl[ \begin{smallmatrix} 12 &amp; 15 \\ 15 &amp; 21 \end{smallmatrix} \bigr]\)</span>, so we have
+<span class="math display">\[=tr \bigl( \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\begin{bmatrix} 12 &amp; 15 \\ 15 &amp; 21 \end{bmatrix} \bigr)+0\]</span>
+<span class="math display">\[=tr \bigl(\begin{bmatrix} 27 &amp; 36 \\ 42 &amp; 57 \end{bmatrix}\bigr) = 27+57 = 84\]</span></li>
+</ol>
+</div>
+</div>
+<div id="question-4" class="section level1">
+<h1>Question 4</h1>
+<p>Let <span class="math inline">\(X \sim N_3(0,I_3)\)</span> and let
+<span class="math display">\[Y_1=X_1+X_2,\]</span>
+<span class="math display">\[Y_2=X_1-X_2+X_3,\]</span>
+<span class="math display">\[Y_3=X_1-X_2-2X_3.\]</span>
+Prove that <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span>, and <span class="math inline">\(Y_3\)</span> are independent. What are their distributions?</p>
+<div id="solution-3" class="section level2">
+<h2>Solution</h2>
+<p>Let
+<span class="math display">\[A=\begin{bmatrix} 
+1 &amp; 1 &amp; 0 \\
+1 &amp; -1 &amp; 1 \\
+1 &amp; -1 &amp; -2
+\end{bmatrix}.\]</span>
+Then <span class="math inline">\(Y=AX\)</span> and <span class="math inline">\(\mathbf{Var}[Y] = \mathbf{Var}[AX] = A\mathbf{Var}[X]A&#39;\)</span>.</p>
+<p>Since <span class="math inline">\(X_i\)</span> are iid, <span class="math inline">\(\mathbf{Cov}(X_i, X_j)=0\;\forall i\neq j\)</span> and since <span class="math inline">\(X_i \sim N(0,1)\)</span>, <span class="math inline">\(\mathbf{Cov}(X_i, X_i)=1\;\forall i\)</span>.</p>
+<p>Hence,
+<span class="math display">\[\mathbf{Var}[Y]=\begin{bmatrix} 
+1 &amp; 1 &amp; 0 \\
+1 &amp; -1 &amp; 1 \\
+1 &amp; -1 &amp; -2
+\end{bmatrix}\begin{bmatrix} 
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}\begin{bmatrix} 
+1 &amp; 1 &amp; 0 \\
+1 &amp; -1 &amp; -1 \\
+1 &amp; 1 &amp; -2
+\end{bmatrix}\]</span>
+<span class="math display">\[=\begin{bmatrix} 
+1 &amp; 1 &amp; 0 \\
+1 &amp; -1 &amp; 1 \\
+1 &amp; -1 &amp; -2
+\end{bmatrix}\begin{bmatrix} 
+1 &amp; 1 &amp; 1 \\
+1 &amp; -1 &amp; -1 \\
+0 &amp; 1 &amp; -2
+\end{bmatrix}\]</span>
+<span class="math display">\[=\begin{bmatrix} 
+2 &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; 6
+\end{bmatrix} = \Sigma,\]</span>
+which shows that <span class="math inline">\(\mathbf{Cov}[Y_i, Y_j]=0\; \forall i \neq j\)</span>. Hence <span class="math inline">\(Y_i\)</span> are independent because <span class="math inline">\(Y \sim N(0, \Sigma)\)</span>. In particular,
+<span class="math display">\[Y_1 \sim N(0,2),\]</span>
+<span class="math display">\[Y_2 \sim N(0,3),\]</span>
+<span class="math display">\[Y_3 \sim N(0,6).\]</span></p>
+</div>
+</div>
+<div id="question-5" class="section level1">
+<h1>Question 5</h1>
+<p>Suppose <span class="math inline">\(Y_{1,1},...,Y_{1,n}\)</span> is an iid sample from a <span class="math inline">\(N(\beta,\sigma^2)\)</span> population, and <span class="math inline">\(Y_{2,1},...,Y_{2,n}\)</span> an independent iid sample from a <span class="math inline">\(N(3\beta,\sigma^2)\)</span> population.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Is this a generalized linear model? Explain carefully.</p></li>
+<li><p>If your answer to (a) was “yes,” then find the least-squares estimator of <span class="math inline">\(\beta\)</span>, and write a t-test for <span class="math inline">\(H_0: \beta = 0\)</span>. Your test must be described explicitly in terms of the <span class="math inline">\(Y_{i,j}\)</span>’s.</p></li>
+</ol>
+<div id="solution-4" class="section level2">
+<h2>Solution</h2>
+<ol style="list-style-type: lower-alpha">
+<li><p>Yes, it is a generalized linear model <span class="math inline">\(Y=X \beta + \varepsilon\)</span> with
+<span class="math display">\[Y&#39;=[Y_{1,1},...,Y_{1,n},Y_{2,1},...,Y_{2,n}],\;\;\;X&#39; = [1, ...,1,3,...,3]_{1\times2n},\;\;\beta=\mu,\;\;\; \varepsilon&#39;=[\varepsilon_{1,1},...,\varepsilon_{1,n},\varepsilon_{2,1},...,\varepsilon_{2,n}]\]</span>
+where <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>, and <span class="math inline">\(\varepsilon\)</span> are <span class="math inline">\(2n \times 1\)</span> and <span class="math inline">\(\beta\)</span> is <span class="math inline">\(1 \times 1\)</span>, so <span class="math inline">\(p=1\)</span>, and <span class="math inline">\(\varepsilon_{i,j} \sim N(0,\sigma^2)\)</span>.</p></li>
+<li><p>Then the least-squares estimate of <span class="math inline">\(\beta\)</span> is
+<span class="math display">\[\hat{\beta} = (X&#39;X)^{-1}X&#39;Y.\]</span>
+We have
+<span class="math display">\[X&#39;X = 1^2n + 3^2n = 10n\]</span>
+<span class="math display">\[X&#39;Y = \sum_{j=1}^{n}Y_{1,j} + 3\sum_{j=1}^{n}Y_{2,j}\]</span>
+so we have
+<span class="math display">\[\hat{\beta} = \frac{1}{10n} \left(\sum_{j=1}^{n}Y_{1,j} + 3\sum_{j=1}^{n}Y_{2,j}\right).\]</span>
+We know a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for <span class="math inline">\(\beta\)</span> is given by
+<span class="math display">\[\hat{\beta} \pm St^{\alpha/2}_{2n-1} \sqrt{X&#39;X}\]</span>
+where <span class="math inline">\(S^2:= \frac{1}{2n-1} RSS\)</span> is computed
+<span class="math display">\[S^2= \frac{1}{2n-1} \left[\sum_{j=1}^{n}(Y_{1,j}-\hat{\beta})^2 + \sum_{j=1}^{n}(Y_{2,j}-3\hat{\beta})^2\right].\]</span></p></li>
+</ol>
+</div>
+</div>
+<div id="question-6" class="section level1">
+<h1>Question 6</h1>
+<p>Suppose <span class="math inline">\(Y_{1,1},...,Y_{1,n}\)</span> is an iid sample from a <span class="math inline">\(N(\beta,\sigma^2)\)</span> population, and <span class="math inline">\(Y_{2,1},...,Y_{2,n}\)</span> an independent iid sample from a <span class="math inline">\(N(\beta,3\sigma^2)\)</span> population.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Is this a generalized linear model? Explain carefully.</p></li>
+<li><p>If your answer to (a) was “yes,” then find the least-squares estimator of <span class="math inline">\(\beta\)</span>, and write a t-test for <span class="math inline">\(H_0: \beta = 0\)</span>. Your test must be described explicitly in terms of the <span class="math inline">\(Y_{i,j}\)</span>’s.</p></li>
+</ol>
+<div id="solution-5" class="section level2">
+<h2>Solution</h2>
+<ol style="list-style-type: lower-alpha">
+<li><p>Yes, it is a generalized linear model <span class="math inline">\(Y=X \beta + \varepsilon\)</span> if we make one small adjustment to achieve <span class="math inline">\(\varepsilon_{i,j} \sim N(0,\sigma^2)\)</span>, since as originally stated, <span class="math inline">\(\varepsilon_{2,j} \sim N(0,3\sigma^2)\)</span>. Let the original <span class="math inline">\(Y_{2,j} \;(\sim N(\beta,3\sigma^2))\)</span> be denoted <span class="math inline">\(\widetilde{Y}_{2,j}\;(\sim N(\beta,3\sigma^2))\)</span> and define our new <span class="math inline">\(Y_{2,j} = \frac{\widetilde{Y}_{2,j}}{\sqrt3}\;(\sim N(\beta,\sigma^2))\)</span>
+so we have
+<span class="math display">\[Y&#39;=[Y_{1,1},...,Y_{1,n},Y_{2,1},...,Y_{2,n}],\;\;\;X&#39; = \left[1, ...,1,\frac{1}{\sqrt3},...,\frac{1}{\sqrt3}\right]_{1\times2n},\;\;\beta=\mu,\;\;\; \varepsilon&#39;=[\varepsilon_{1,1},...,\varepsilon_{1,n},\varepsilon_{2,1},...,\varepsilon_{2,n}]\]</span>
+where <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>, and <span class="math inline">\(\varepsilon\)</span> are <span class="math inline">\(2n \times 1\)</span> and <span class="math inline">\(\beta\)</span> is <span class="math inline">\(1 \times 1\)</span>, so <span class="math inline">\(p=1\)</span>.</p></li>
+<li><p>Then the least-squares estimate of <span class="math inline">\(\beta\)</span> is
+<span class="math display">\[\hat{\beta} = (X&#39;X)^{-1}X&#39;Y.\]</span>
+We have
+<span class="math display">\[X&#39;X = n + \frac{1}{3}n\]</span>
+<span class="math display">\[X&#39;Y = \sum_{j=1}^{n}Y_{1,j} + \frac{1}{\sqrt3}\sum_{j=1}^{n}Y_{2,j}\]</span>
+so we have
+<span class="math display">\[\hat{\beta} = \frac{3}{4n} \left(\sum_{j=1}^{n}Y_{1,j} + \frac{1}{\sqrt3}\sum_{j=1}^{n}Y_{2,j}\right).\]</span>
+We know a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for <span class="math inline">\(\beta\)</span> is given by
+<span class="math display">\[\hat{\beta} \pm St^{\alpha/2}_{2n-1} \sqrt{X&#39;X}\]</span>
+and <span class="math inline">\(S^2:= \frac{1}{2n-1} RSS\)</span> is computed
+<span class="math display">\[S^2= \frac{1}{2n-1} \left[\sum_{j=1}^{n}(Y_{1,j}-\hat{\beta})^2 + \sum_{j=1}^{n}\left(Y_{2,j}-\frac{\hat{\beta}}{\sqrt3}\right)^2\right].\]</span></p></li>
+</ol>
+</div>
+</div>

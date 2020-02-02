@@ -1,0 +1,160 @@
+---
+title: Regression with Orthonormal Polynomials
+author: Michael Bigelow
+date: '11/30/2019'
+slug: regression-with-forsythe-hayes-orthonormal-polynomials
+categories:
+  - Linear Models
+tags:
+  - python
+  - r
+  - regression
+subtitle: ''
+summary: 'An implementation of the Forsythe-Hayes algorithm in Python, and an example approximating $f(x)=\sin(2\pi x),x\in[0,1]$.'
+authors: [admin]
+lastmod: '2019-11-30T15:35:13-07:00'
+featured: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Sys.setenv(RETICULATE_PYTHON = '/usr/local/bin/python3')
+library(tidyverse)
+library(readr)
+library(reticulate)
+```
+
+# Overview
+We implement the Forsythe-Hayes algorithm in Python, and use it to approximate $f(x)=\sin(2\pi x),\;\;x\in[0,1]$. We compare the result to that found with usual polynomial regression.
+
+# Setup
+To find orthonormal polynomials for our regression, we first implement the Forsythe-Hayes algorithm,
+$$\psi_0(x):=1$$
+$$\psi_1(x)=x-\bar{x}$$
+$$\psi_{r+1}(x):=(x-a_{r+1})\psi_r(x)-b_r\psi_{r-1}(x)$$
+in Python, taking care to normalize the orthogonal columns $\psi_i$ of the resulting design matrix to yield orthonormal $\phi_i$:
+```{python}
+import numpy as np
+
+def forsythehayes(x, poly=4):
+    '''
+    Forsythe-Hayes orthonormal polynomials
+    :param x: a vector of data (numpy array)
+    :param poly: number of polynomials to be used
+    :return: n x d design matrix of polynomials from the 2-step method, 
+              vector of a, vector of b
+    '''
+    n = len(x)
+    psi = [np.ones(n) for p in range(poly + 1)]
+    a = np.ones(poly + 1)
+    b = np.ones(poly)
+    a[1] = np.mean(x)
+    psi[1] = (x - a[1])
+    for r in range(1, poly):
+        a[r+1] = (np.dot(x, np.square(psi[r]))) / np.sum(np.square(psi[r]))
+        b[r] = np.sum(np.square(psi[r])) / np.sum(np.square(psi[r-1]))
+        psi[r+1] = (x - a[r+1]) * psi[r] - b[r] * psi[r-1]
+    design = np.stack(psi, axis=1)
+    for i in range(poly + 1):
+        design[:,i] = design[:,i] / np.linalg.norm(design[:,i])
+    return design, a, b
+```
+
+Again using Python, we declare our data of interest $x_i := \frac{i}{100}$ for $i = 1, ...,100$:
+```{python}
+x_i = np.array([(i+1)/100 for i in range(100)])
+```
+
+We then call our Forsythe-Hayes function with our $x_i$ as input, and view an R dataframe of the design matrix $\mathbf{X}$ returned by the Python function:
+```{python, echo=FALSE}
+import pandas as pd
+
+forsythedesign = pd.DataFrame(forsythehayes(x_i)[0])
+```
+
+```{r, warning=FALSE}
+forsythedesign <- py$forsythedesign
+as.tibble(forsythedesign)
+```
+
+If we are curious about the $a_{r+1}$ and $b_r$ values that our function used at each iteration to compute these polynomials, we can easily view them:
+```{python, echo=FALSE}
+print('a = \n', np.round(forsythehayes(x_i)[1][1:],4))
+print('b = \n', np.round(forsythehayes(x_i)[2],4))
+```
+
+To show that our columns $\phi_i$ are orthonormal,
+$$\sum_{j=1}^{100}\phi_k(x_j)\phi_l(x_j)= \begin{cases} 0 & k \neq l \\
+      1 & k = l 
+   \end{cases}$$
+it suffices to show that for the design matrix $\mathbf{X}$ computed by our algorithm, $\mathbf{X'X}=\mathbf{I}$:
+```{r}
+round(t(as.matrix(forsythedesign)) %*% as.matrix(forsythedesign), 6)
+```
+
+# Approximation
+We wish to approximate 
+$$f(x)=\sin(2\pi x),\;\;x\in[0,1]$$
+with a polynomial of degree 4 using the design matrix we computed above. Since $\mathbf{X'X}=\mathbf{I}$, our parameter estimates $\hat{\boldsymbol{\gamma}}$ are simplified from the general case of linear models: $$\hat{\boldsymbol{\gamma}}=(\mathbf{X'X})^{-1}\mathbf{X'Y}$$ $$=\mathbf{X'Y}.$$
+We can quickly compute our "observed" $\mathbf{Y}$ values for each of our $x_i$ using Python's list comprehensions:
+```{python}
+Y = np.array([np.sin(2 * np.pi * x_i[i]) for i in range(len(x_i))])
+```
+
+Then fit the model in R:
+```{r}
+Y <- py$Y
+gamma <- t(as.matrix(forsythedesign)) %*% Y
+gamma
+```
+
+# Comparison to usual regression
+If instead we had used polynomials $1, x, x^2, x^3, x^4$ for our design matrix, and fitted our model in the usual way, i.e. $$\hat{\boldsymbol{\beta}}=(\mathbf{X'X})^{-1}\mathbf{X'Y}$$
+we would have design matrix (from Python):
+```{python}
+design = pd.DataFrame(np.stack([np.power(x_i, i) for i in range(5)], axis=1))
+```
+viewed (in R):
+```{r}
+design <- py$design
+as.tibble(design)
+```
+and our parameter vector $\hat{\boldsymbol{\beta}}$:
+```{r}
+Design <- as.matrix(design)
+beta <- solve(t(Design) %*% Design) %*% t(Design) %*% Y
+beta
+```
+
+# Comparing the models
+We can estimate $\hat{\mathbf{Y}}_{F}$ from our Forsythe-Hayes orthonormal polynomial design matrix $\mathbf{X}_{F}$ and $\hat{\boldsymbol{\gamma}}$: 
+$$\hat{\mathbf{Y}}_{F}=\mathbf{X}_{F} \hat{\boldsymbol{\gamma}}$$
+and $\hat{\mathbf{Y}}$ from our usual polynomial design matrix $\mathbf{X}$ and $\hat{\boldsymbol{\beta}}$:
+$$\hat{\mathbf{Y}}=\mathbf{X} \hat{\boldsymbol{\beta}}$$
+and preview the data and the models' predictions:
+```{r}
+x <- py$x_i
+Forsythe_Hayes <- as.matrix(forsythedesign) %*% gamma
+Poly_Regression <- Design %*% beta
+comparison <- tibble(x, Y, Forsythe_Hayes, Poly_Regression)
+comparison
+```
+Upon inspection, the two approximations appear to yield identical results.
+
+We now plot $f(x)=\sin(2\pi x),\;\;x\in[0,1]$ in black and our two approximations in orange and blue:
+```{r}
+comparison %>%
+  ggplot(aes(x)) + 
+    geom_point(aes(x, Y)) +
+    geom_line(aes(y = Poly_Regression), color = 'blue', size = 1.5) +
+    geom_line(aes(y = Forsythe_Hayes), color = 'orange') 
+```
+
+Our models both fit the function equally well over the specified interval; however if we wish to approximate the curve with a polynomial of higher degree, the Forsythe-Hayes model will avoid returning a design matrix that is ill-conditioned.  
+
+For curiosity's sake, additional tests were carried out. On this data, the Forsythe-Hayes algorithm successfully calculated design matrices for regression with polynomials of degree 100 without issue, whereas the usual polynomial regression failed past degree ten due to an ill-conditioned design matrix.  While such high-degree polynomials are certainly not needed for this data (merely increasing the degree to five fits the data quite well), such an exercise illustrates the comparative robustness of the Forsythe-Hayes approach.

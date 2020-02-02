@@ -9,7 +9,7 @@ tags:
   - mathematics
   - machine learning
   - proofs
-  - PAC learning
+  - VC dimension
 subtitle: ''
 summary: 'Four key VC-dimension proofs from a graduate course in machine learning.'
 authors: [admin]

@@ -1,0 +1,95 @@
+---
+title: Selected Proofs from Machine Learning
+author: Michael Bigelow
+date: '2019-11-06'
+slug: selected-proofs-from-machine-learning
+categories:
+  - Machine Learning
+tags:
+  - mathematics
+  - machine learning
+  - proofs
+  - VC dimension
+subtitle: ''
+summary: ''
+authors: [admin]
+lastmod: '2019-11-06T00:54:26-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="background" class="section level1">
+<h1>Background</h1>
+<p>The following are several proof solutions I wrote during a graduate machine learning course during a unit covering statistical/computational learning theory, specifically concerning Vapnik-Chervonenkis dimension of a hypothesis class of learners.</p>
+</div>
+<div id="question-1" class="section level1">
+<h1>Question 1</h1>
+<p>Consider a hypothesis class <span class="math inline">\(\mathcal{H}\)</span> defined as a union of two real valued intervals [a, b] and [c, d] on the number line. A point <span class="math inline">\(x\)</span> is labeled as positive if it is inside in either of the two intervals, otherwise it is labeled as negative. i.e <span class="math inline">\(x\)</span> is + iff <span class="math inline">\(a \le x \le b\)</span> or <span class="math inline">\(c \le x \le d\)</span>. Determine the VC dimension of the hypothesis class <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<div id="solution" class="section level2">
+<h2>Solution</h2>
+<p>To show that <span class="math inline">\(VC(\mathcal{H}) \geqslant 4\)</span>, we consider four distinct points on the real line: <span class="math inline">\(x_1 &lt; x_2 &lt; x_3 &lt; x_4\)</span>. Clearly we can label zero points positive by setting
+<span class="math display">\[a=b=c=d\neq x_i \forall i.\]</span><br />
+We can label all points positive by setting
+<span class="math display">\[a=c=x_1,b=d=x_4.\]</span>
+We can label any singleton point <span class="math inline">\(x_j\)</span> positive by setting
+<span class="math display">\[a=b=x_j, c=d\neq x_i \forall i\neq j.\]</span>
+We can label any two <span class="math inline">\(adjacent\)</span> points <span class="math inline">\(x_j&lt;x_k\)</span> positive with
+<span class="math display">\[c=x_j &lt; x_k = d.\]</span>
+And to label any two points <span class="math inline">\(x_j, x_k\)</span> positive in the case that <span class="math inline">\(\exists x_i: x_j&lt;x_i&lt;x_k,\)</span> we define two intervals:
+<span class="math display">\[a=x_j\leqslant b &lt; x_i &lt; c \leqslant x_k = d.\]</span>
+We can label any three points positive by observing that in our set of four points, two of the three positive points must be adjacent, so we construct our interval <span class="math inline">\([a,b]\)</span> according to the rules above for a singleton point and <span class="math inline">\([c,d]\)</span> for a pair of adjacent points.</p>
+<p>To show that <span class="math inline">\(VC(\mathcal{H}) &lt; 5\)</span>, notice that if we have <span class="math inline">\(x_j=x_k\)</span> for some <span class="math inline">\(j,k \in \mathbb{Z}: \;1 \leqslant j&lt;k\leqslant 5,\)</span> then we fail to shatter <span class="math inline">\(S\)</span> because we may have <span class="math inline">\(f(x_j)\neq f(x_k)\)</span> and we know that <span class="math display">\[\forall  x_j=x_k,  h(x_j)=h(x_k).\]</span> So WLOG we consider a set of distinct <span class="math inline">\(x_i: x_1 &lt; x_2 &lt; x_3 &lt; x_4 &lt; x_5.\)</span><br />
+Now consider three nonadjacent positively-labeled points <span class="math inline">\(f(x_1)=f(x_3)=f(x_5)=1.\)</span> Recall that to label a set of three points positive using our <span class="math inline">\(h \in \mathcal{H},\)</span> we made use of the fact that two of the points had to be adjacent, which is no longer true. In particular, to account for
+<span class="math display">\[f(x_1)=f(x_5)=1,f(x_2)=f(x_4)=0\]</span>
+we must have
+<span class="math display">\[a \leqslant x_1 \leqslant b &lt; x_2 &lt;x_3 &lt;x_4 &lt;c \leqslant x_5 \leqslant d\]</span> and in this case there is no <span class="math inline">\(h \in \mathcal{H}\)</span> such that <span class="math inline">\(h(x_3)=1\)</span>. Hence <span class="math inline">\(VC(\mathcal{H}) = 4\)</span>. <span class="math inline">\(\square\)</span></p>
+</div>
+</div>
+<div id="question-2" class="section level1">
+<h1>Question 2</h1>
+<p>Consider a more general hypothesis class <span class="math inline">\(\mathcal{H}\)</span> consisting of a union of <span class="math inline">\(k\)</span> real valued intervals. Determine the VC dimension of the hypothesis class <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<div id="solution-1" class="section level2">
+<h2>Solution</h2>
+<p>The above argument shows that for five points we needed another interval to shatter <span class="math inline">\(S,\)</span> namely three intervals. Indeed, it is easy to see that three intervals will suffice for <span class="math inline">\(d=6\)</span> points as well, since any set of four or more positively-labeled points will contain two or more adjacent positively-labeled points which can be covered by a single interval, leaving two intervals to cover the remaining points (of which there will be at most two).</p>
+<p>In general, for <span class="math inline">\(d\)</span> points, where <span class="math inline">\(d\)</span> is an even integer, the union of <span class="math inline">\(k=\frac{d}{2}\)</span> intervals can generate any labeling, since whenever the number of positive points exceeds <span class="math inline">\(k=\frac{d}{2}\)</span>, we are guaranteed that at least two of them will be adjacent and can be therefore labeled positive by a single interval. So for <span class="math inline">\(\mathcal{H}\)</span> consisting of all unions of k real-valued intervals,
+<span class="math display">\[VC(\mathcal{H})\geqslant d = 2k.\]</span></p>
+<p>Again, by the reasoning above WLOG we can restrict our attention to a set of distinct <span class="math inline">\(x_i: 1\leqslant i \leqslant d.\)</span> To show that
+<span class="math display">\[VC(\mathcal{H})&lt; d = 2k+1\]</span>
+notice that d is an odd integer and for the labeling that makes alternating points positive such that <span class="math inline">\(f(x_1)=f(x_3)=...=f(x_d)=1\)</span> with all other other points negative, there will be <span class="math inline">\(\frac{d+1}{2}\)</span> positive, non-adjacent points, each requiring its own interval; in particular, we will need
+<span class="math display">\[\frac{(2k+1)+1}{2} = \frac{2k+2}{2} = k+1\]</span> intervals, and we only have k, so <span class="math inline">\(\mathcal{H}\)</span> fails to shatter the set <span class="math inline">\(S\)</span> of size <span class="math inline">\(d.\)</span></p>
+<p>Hence for a hypothesis class <span class="math inline">\(\mathcal{H}\)</span> consisting of a union of <span class="math inline">\(k\)</span> real-valued intervals, <span class="math inline">\(VC(\mathcal{H})= 2k.\)</span> <span class="math inline">\(\square\)</span></p>
+</div>
+</div>
+<div id="question-3" class="section level1">
+<h1>Question 3</h1>
+<p>Given two hypothesis classes, <span class="math inline">\(\mathcal{H}\)</span> and <span class="math inline">\(\mathcal{G}\)</span>, prove that if <span class="math inline">\(\mathcal{H} \subseteq \mathcal{G}\)</span> then <span class="math inline">\(VC(\mathcal{H})\leq VC(\mathcal{G})\)</span>.</p>
+<div id="solution-2" class="section level2">
+<h2>Solution</h2>
+<p>Let <span class="math inline">\(\mathcal{H}\subseteq \mathcal{G}\)</span> and assume <span class="math inline">\(VC(\mathcal{H})&gt;VC(\mathcal{G})\)</span> toward a contradiction.<br />
+This implies that for any arrangement of <span class="math inline">\(d=VC(\mathcal{H})\)</span> points <span class="math inline">\(x \in S,\)</span> there is no <span class="math inline">\(g\in \mathcal{G}\)</span> such that <span class="math inline">\(g(x)=f(x).\)</span> But we know that for some arrangement of <span class="math inline">\(d=VC(\mathcal{H})\)</span> points <span class="math inline">\(x \in S\)</span> there is a function <span class="math inline">\(h \in \mathcal{H}\)</span> such that <span class="math inline">\(h(x)=f(x)\)</span> by definition of <span class="math inline">\(VC(\mathcal{H}).\)</span> But this is a contradition, since <span class="math inline">\(\mathcal{H}\subseteq \mathcal{G}\)</span> and the definition of subset means that
+<span class="math inline">\(\forall h(x) \in \mathcal{H}, h(x)=g(x)\in \mathcal{G}. \square\)</span></p>
+</div>
+</div>
+<div id="question-4" class="section level1">
+<h1>Question 4</h1>
+<p>Let <span class="math inline">\(\mathcal{H}\)</span> be a finite concept class, show that if <span class="math inline">\(VC(\mathcal{H})=d\)</span>, then <span class="math inline">\(|\mathcal{H}|\geq 2^d\)</span>.</p>
+<div id="solution-3" class="section level2">
+<h2>Solution</h2>
+<p>Let <span class="math inline">\(\mathcal{H}\)</span> be a finite concept class such that <span class="math inline">\(VC(\mathcal{H})=d\)</span>. For a direct proof that <span class="math inline">\(|\mathcal{H}|\geq 2^d\)</span>, first note that every possible labeling of <span class="math inline">\(x \in S\)</span> given by <span class="math inline">\(f\)</span> is equivalent to a partition of <span class="math inline">\(S\)</span> into a set of positive and a set of negative points, which we’ll denote <span class="math inline">\(S^+\)</span> and <span class="math inline">\(S^-:\)</span>
+<span class="math display">\[S^+:=\{x \in S:f(x)=1\}\]</span>
+<span class="math display">\[S^-:=\{x \in S:f(x)=0\}\]</span>
+Recall from set theory that for a set <span class="math inline">\(S\)</span> the “power set of <span class="math inline">\(S\)</span>” is defined as the class of all possible subsets of <span class="math inline">\(S,\)</span> denoted <span class="math inline">\(\mathcal{P}(S)\)</span>. By the definition of the power set of <span class="math inline">\(S,\)</span> it is clear that
+<span class="math display">\[S^+ \in \mathcal{P}(S)\; \forall S^+\]</span>
+Notice that <span class="math inline">\(VC(\mathcal{H})=d\)</span> implies that for <span class="math inline">\(d\)</span> points, the “restriction of <span class="math inline">\(\mathcal{H}\)</span> to <span class="math inline">\(S\)</span>” (as defined in Shalev-Shwarz and Ben-David, 2014. <a href="https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf">“Understanding Machine Learning”</a>, p.69), denoted <span class="math inline">\(\mathcal{H}_S,\)</span> is identically the power set of <span class="math inline">\(S.\)</span> Hence we have
+<span class="math display">\[|\mathcal{H}_S|=|\mathcal{P}(S)|.\]</span> Since <span class="math inline">\(\mathcal{H}_S \subseteq \mathcal{H},\)</span> we have
+<span class="math display">\[|\mathcal{H}|\geq |\mathcal{P}(S)|\]</span>
+and we know that the size of the power set <span class="math inline">\(\mathcal{P}(S)\)</span> of any set <span class="math inline">\(S\)</span> is <span class="math inline">\(2^{|S|}=2^d\)</span> which implies that<br />
+<span class="math display">\[|\mathcal{H}|\geq 2^d.\square\]</span></p>
+</div>
+</div>

@@ -1,7 +1,7 @@
 ---
 title: Selected Proofs from Machine Learning
 author: Michael Bigelow
-date: '2019-09-04'
+date: '2019-11-06'
 slug: selected-proofs-from-machine-learning
 categories:
   - Machine Learning
@@ -11,9 +11,9 @@ tags:
   - proofs
   - VC dimension
 subtitle: ''
-summary: 'Four key VC-dimension proofs from a graduate course in machine learning.'
+summary: ''
 authors: [admin]
-lastmod: '2020-02-01T21:26:28-07:00'
+lastmod: '2019-11-06T00:54:26-07:00'
 featured: no
 image:
   caption: ''
@@ -21,6 +21,7 @@ image:
   preview_only: no
 projects: []
 ---
+
 
 # Background
 The following are several proof solutions I wrote during a graduate machine learning course during a unit covering statistical/computational learning theory, specifically concerning Vapnik-Chervonenkis dimension of a hypothesis class of learners.

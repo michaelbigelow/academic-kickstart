@@ -11,7 +11,7 @@ tags:
   - proofs
   - VC dimension
 subtitle: ''
-summary: ''
+summary: 'Four key proofs from a graduate course in machine learning.'
 authors: [admin]
 lastmod: '2019-11-06T00:54:26-07:00'
 featured: no

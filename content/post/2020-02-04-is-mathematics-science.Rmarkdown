@@ -28,7 +28,7 @@ projects: []
 # What is Mathematics?
 *“Mathematics is the language in which God has written the universe.” -Galileo*
 
-No person of science would dispute that mathematics plays an indispensable role in our attempt to learn something about the physical world.  With mathematics we may encode the laws of mechanics, electromagnetism, and relativity into rigorous language [for the purpose of conducting theoretical physics](https://www.youtube.com/watch?v=V49i_LM8B0E); more broadly, by mathematics we establish the machinery of statistical inference with which all scientific observation is weighed and each hypothesis tested.  As scientists, we hold science to be our chief way of discovering truth in the physical world; but where does mathematics stand with respect to our efforts?  Is mathematics science?  
+No person of science would dispute that mathematics plays an indispensable role in our attempt to learn something about the physical world.  With mathematics we may encode the laws of mechanics, electromagnetism, and relativity into rigorous language [for the purpose of conducting theoretical physics](https://youtu.be/V49i_LM8B0E?t=165); more broadly, by mathematics we establish the machinery of statistical inference with which all scientific observation is weighed and each hypothesis tested.  As scientists, we hold science to be our chief way of discovering truth in the physical world; but where does mathematics stand with respect to our efforts?  Is mathematics science?  
 ![source: xkcd.com](/img/xkcd_purity.jpg)
 [(image source: xkcd)](https://xkcd.com/)
 ## Popper's Falsifiability Criterion for Science
@@ -42,7 +42,7 @@ Why is the criterion of falsifiability of utmost importance to science?  Popper 
 Hence, to determine on which side of this demarcation mathematics falls, first we must ask whether mathematics is empirical.  Only if math is empirical will the criterion of falsifiability be relevant; else the criterion leads nowhere: mathematics may pass, or it may fail, but if from the outset it does not concern itself with the sort of truth that empirical science seeks then it is, quite simply, not empirical science. 
 
 # Foundations of Mathematical Logicism
-*“The theorems of mathematics all say the same, namely nothing.”  -Ludwig Wittgenstein* [(translated: Frederic Schuller)](https://youtube.com/watch?v=V49i_LM8B0E?t=112) 
+*“The theorems of mathematics all say the same, namely nothing.”  -Ludwig Wittgenstein* [(translated: Frederic Schuller)](https://youtu.be/V49i_LM8B0E?t=112) 
 
 ## Types of Truth
 Very well, our classification of mathematics hinges upon understanding the type of truth it seeks to yield.  Such consideration of truth must be undergirded by an understanding of the difference between **contingent** truth and **necessary** truth.  In a sentence, **contingent** truth happens to be true, while **necessary** truth is true in any conceivable scenario.  
@@ -56,7 +56,7 @@ A related notion that may be useful to mention at this point is the distinction 
 
 On the other hand, *tautologies* such as “Every bachelor is unmarried” and “Every diagonalizable n x n matrix has n linearly-independent eigenvectors” are *a priori* true, relying only on definitions of terms and the application of pure logic, and are no doubt the sorts of statements Wittgenstein had in mind with the quote at the beginning of this section.  
 
-## A Frantic History
+## A Distilled History
 Immediately before Wittgenstein, the work of [Gottlob Frege](https://en.wikipedia.org/wiki/Gottlob_Frege)
  [(Foundations of Arithmetic)](https://plato.stanford.edu/entries/frege-theorem/) and that of [Bertrand Russell](https://en.wikipedia.org/wiki/Bertrand_Russell)
  and [Alfred North Whitehead](https://en.wikipedia.org/wiki/Alfred_North_Whitehead)
@@ -83,7 +83,7 @@ For a brief illustrative puzzle using formal systems, I present an excerpt from 
 Predicate logic is still the foundation for methods of proof, as may be found in the following fourteen-page primer on the subject owing to Professor Anne Roberts at the University of Utah, ["Basic Logic Concepts"](https://www.math.utah.edu/~aroberts/M3210-1d.pdf), frequently presented to undergraduate students in preparation for their first mathematically rigorous coursework.  In particular, the reader is invited to examine page 8, where Dr. Roberts gives an overview of some methods of proof.  
 
 ## Examples of Mathematical Proof
-For concrete examples of proof, the reader is invited to examine a sample of the author's own proofs in [linear models](https://michaelbigelow.com/post/selected-proofs-and-problems-from-linear-models/) (for brevity, see problem 1) and [machine learning](https://michaelbigelow.com/post/selected-proofs-from-machine-learning/) (see problem 3 for a proof by contradiction, and problem 4 for a constructive, or direct, proof to borrow Dr. Roberts' terminology).
+To conclude our discussion of the use of formal logic in the development of mathematics, we present a few concrete examples of proof; the reader is invited to examine a sample of the author's own proofs in [linear models](https://michaelbigelow.com/post/selected-proofs-and-problems-from-linear-models/) (for brevity, see problem 1) and [machine learning](https://michaelbigelow.com/post/selected-proofs-from-machine-learning/) (see problem 3 for a proof by contradiction, and problem 4 for a constructive, or direct, proof to borrow Dr. Roberts' terminology).
 
 # Conclusion
 Through this historical background, and a view of the current landscape, the author hopes that the reader has become aware of key differences between the aims and methods of mathematics and the criteria Karl Popper propounds for the classification of a discipline as science.

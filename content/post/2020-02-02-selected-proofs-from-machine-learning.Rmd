@@ -22,7 +22,6 @@ image:
 projects: []
 ---
 
-
 # Background
 The following are several proof solutions I wrote during a graduate machine learning course during a unit covering statistical/computational learning theory, specifically concerning Vapnik-Chervonenkis dimension of a hypothesis class of learners.
 

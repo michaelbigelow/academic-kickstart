@@ -77,7 +77,7 @@ Godel did not show that the efforts of Russell and the rest had “proved” pro
 ## Illustrative Puzzle
 For a brief illustrative puzzle using formal systems, I present an excerpt from Douglas Hofstadter’s *Godel, Escher, Bach: An Eternal Golden Braid*.  The reader is invited to work along with pen and paper if able.
 
-{{< youtube f-EwlyAT5wI>}}
+{{< youtube w0IjEer0THs>}}
 
 ## Example of Current Pedagogy
 Predicate logic is still the foundation for methods of proof, as may be found in the following fourteen-page primer on the subject owing to Professor Anne Roberts at the University of Utah, ["Basic Logic Concepts"](https://www.math.utah.edu/~aroberts/M3210-1d.pdf), frequently presented to undergraduate students in preparation for their first mathematically rigorous coursework.  In particular, the reader is invited to examine page 8, where Dr. Roberts gives an overview of some methods of proof.  

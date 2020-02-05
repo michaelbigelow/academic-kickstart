@@ -27,7 +27,7 @@ projects: []
 The following are several proof solutions I wrote during a graduate machine learning course during a unit covering statistical/computational learning theory, specifically concerning Vapnik-Chervonenkis dimension of a hypothesis class of learners.
 
 # Question 1
-Consider a hypothesis class $\mathcal{H}$ defined as a union of two real valued intervals [a, b] and [c, d] on the number line. A point $x$ is labeled as positive if it is inside in either of the two intervals, otherwise it is labeled as negative. i.e $x$ is + iff $a \le x \le b$ or  $c \le x \le d$. Determine the VC dimension of the hypothesis class $\mathcal{H}$.
+Consider a hypothesis class $\mathcal{H}$ defined as a union of two real valued intervals [a, b] and [c, d] on the number line. A point $x$ is labeled as positive if it is inside in either of the two intervals, otherwise it is labeled as negative; i.e. $x$ is "+" if and only if $a \le x \le b$ or  $c \le x \le d$. Determine the VC dimension of the hypothesis class $\mathcal{H}$.
 
 ## Solution
 To show that $VC(\mathcal{H}) \geqslant 4$, we consider four distinct points on the real line: $x_1 < x_2 < x_3 < x_4$.  Clearly we can label zero points positive by setting 

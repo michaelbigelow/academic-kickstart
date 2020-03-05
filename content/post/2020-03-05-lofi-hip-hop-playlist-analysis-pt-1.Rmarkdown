@@ -191,7 +191,7 @@ tracks %>% ggplot(aes(x = playlist, y = acousticness)) +
 Again, the Strange Fruits and Lofi Beats playlists visually appear more similar, with ChilledCow and Lush Lofi appearing likewise.  Let us perform ANOVA once more.  
 ```{r}
 anova3 <- aov(acousticness ~ playlist, data = tracks)
-TukeyHSD(anova2, conf.level = .99)
+TukeyHSD(anova3, conf.level = .99)
 ```
 
 At the 99% confidence level we see no evidence to reject the null hypothesis of equal mean acousticness pair-wise between the pairs listed in row 1, 4, or 6.
@@ -212,7 +212,7 @@ tracks %>% ggplot(aes(x = playlist, y = duration_s)) +
 Lush Lofi appears to have a shorter average track duration; we will carry out analysis of variance as before to confirm.
 ```{r}
 anova4 <- aov(duration_s ~ playlist, data = tracks)
-TukeyHSD(anova2, conf.level = .99)
+TukeyHSD(anova4, conf.level = .99)
 ```
 
 Looking at the p-values given for each pair, the p-values <0.01 for the pairings between Lush Lofi and any other track indicate at the 99% confidence level that its duration differs.  Looking at the column labeled "diff", we see that the tracks are generally around 15 to 20 seconds shorter.

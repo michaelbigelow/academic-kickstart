@@ -13,7 +13,7 @@ subtitle: ''
 summary: ''
 authors: [admin]
 lastmod: '2020-03-05T04:21:38-07:00'
-featured: no
+featured: yes
 image:
   caption: ''
   focal_point: ''
@@ -24,7 +24,7 @@ projects: []
 
 
 # Introduction and Motivation
-In the coming weeks, I will seek to apply the data science techniques I am learning to a subject that will be interesting to lovers of music-- namely music recommendation systems-- in hopes of learning more about these systems in particular, and about all types of recommendation systems in general. 
+In the coming weeks, I will analyze four Lofi Hip Hop Spotify playlists to gain an understanding of how the features of Spotify's music recommendation system relate to the characteristics of a particular genre.  I seek to apply the data science techniques I am learning to a subject that will be interesting to lovers of music. In addition, I seek to understand all I can about these music recommendation systems in particular, and about such recommender systems in general.
 
 Of course, one must start somewhere, and due to my keen interest in the recent sounds of lofi hip hop, this first post quantitatively examines the differences between track features of four Spotify playlists containing lofi hip hop. Two playlists are user-created; two Spotify-curated.
 
@@ -121,7 +121,7 @@ From Spotify: *"Energy is a measure from 0.0 to 1.0 and represents a perceptual 
 
 Interestingly, it appears that the ChilledCow playlist shares a similar median track energy with Spotify's Lush Lofi, while Strange Fruits' playlist shares a similar median with Spotify's Lo-Fi Beats.
 
-We shall test the null hypothesis `\(H_0: \mu_1=\mu_2=\mu_3=\mu_4\)`, i.e., that the mean energies are the same for all playlists.  We shall actually use Tukey's method to test this hypothesis between each pair of playlists.
+We shall test the null hypothesis that the mean energies are the same for all playlists.  We shall actually use Tukey's method to test this hypothesis between each pair of playlists. 
 
 ```r
 anova1 <- aov(energy ~ playlist, data = tracks)

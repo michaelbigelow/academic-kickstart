@@ -78,7 +78,6 @@ The Python code for gathering track features for each playlist utilizes the Spot
 
 After processing the data into one tibble, we can see that it contains 997 individual tracks of 12 features each (excluding "id" and "playlist").  An explanation of the features can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/).
 
-The full tibble is fully browsable below for the curious reader.
 ```{r echo=FALSE}
 tracks <- rbind(LHHMtracks %>% mutate(playlist = "ChilledCow"), 
                 SFLHHtracks %>% mutate(playlist = "StrangeFruits"),
@@ -88,7 +87,7 @@ tracks <- rbind(LHHMtracks %>% mutate(playlist = "ChilledCow"),
           distinct() %>%
           select(-c(id_1, type, uri, track_href, analysis_url, time_signature, duration_ms, id), id) 
 
-paged_table(tracks)
+tracks
 ```
 
 Out of interest, let us examine how many tracks belong to each playlist:

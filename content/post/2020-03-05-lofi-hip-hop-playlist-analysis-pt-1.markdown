@@ -217,7 +217,7 @@ TukeyHSD(anova3, conf.level = .99)
 ## StrangeFruits-Sp_LushLoFi  -0.12003063 -0.21771661 -0.02234464 0.0007684
 ```
 
-At the 99% confidence level we see no evidence to reject the null hypothesis of equal mean acousticness pair-wise between the pairs listed in row 1, 4, or 6.
+At the 99% confidence level we see no evidence to reject the null hypothesis of equal mean acousticness pair-wise between the pairs "Lush Lofi/ ChilledCow", "Strange Fruits/ Chilled Cow", or "Strange Fruits/ Lofi Beats."
 
 #### Duration
 The duration, while not a very descriptive feature sound-wise, could nevertheless prove valuable in training a classifier.  Its appearance as a prominent loading in the biplot leads us to investigate.
@@ -246,7 +246,7 @@ TukeyHSD(anova4, conf.level = .99)
 ## StrangeFruits-Sp_LushLoFi   16.3883646   4.029552 28.747177 0.0002213
 ```
 
-Looking at the p-values given for each pair, the p-values <0.01 for the pairings between Lush Lofi and any other track indicate at the 99% confidence level that its duration differs.  Looking at the column labeled "diff", we see that the tracks are generally around 15 to 20 seconds shorter.
+Looking at the p-values given for each pair, the p-values <0.01 for the pairings between Lush Lofi and any other track indicate at the 99% confidence level that its duration differs.  Looking at the column labeled "diff", we see that the tracks in "Lush Lofi" are generally around 15 to 20 seconds shorter.
 
 #### Track Tempos
 For reference, let us examine a feature whose loading in the PCA biplot above appeared near the origin:

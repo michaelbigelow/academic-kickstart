@@ -1,6 +1,6 @@
 ---
 title: Lofi Hip Hop Playlist Analysis pt.1
-author: admin
+author: Michael Bigelow
 date: '2020-03-05'
 slug: lofi-hip-hop-playlist-analysis-pt-1
 categories:
@@ -11,7 +11,7 @@ tags:
   - EDA
 subtitle: ''
 summary: ''
-authors: []
+authors: [admin]
 lastmod: '2020-03-05T04:21:38-07:00'
 featured: no
 image:
@@ -59,16 +59,16 @@ The playlists in question are:
   
 
 ```{r, echo=FALSE, warning=FALSE}
-SFLHHtracks <- read_csv("SFLHHtracks", 
+SFLHHtracks <- read_csv("../../static/data/SFLHHtracks", 
                         col_types = cols(`Unnamed: 0` = col_skip(), 
                                          X1 = col_skip()))
-LLtracks <- read_csv("LLtracks", 
+LLtracks <- read_csv("../../static/data/LLtracks", 
                      col_types = cols(`Unnamed: 0` = col_skip(), 
                                       X1 = col_skip()))
-LFBtracks <- read_csv("LFBtracks", 
+LFBtracks <- read_csv("../../static/data/LFBtracks", 
                       col_types = cols(`Unnamed: 0` = col_skip(),
                                        X1 = col_skip()))
-LHHMtracks <- read_csv("LHHMtracks", 
+LHHMtracks <- read_csv("../../static/data/LHHMtracks", 
                        col_types = cols(`Unnamed: 0` = col_skip(),
                                         X1 = col_skip()))
 ```

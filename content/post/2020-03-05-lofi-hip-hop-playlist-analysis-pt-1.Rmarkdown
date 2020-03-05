@@ -36,7 +36,7 @@ library(caret)
 ```
 
 # Introduction and Motivation
-In the coming weeks, I will analyze four Lofi Hip Hop Spotify playlists to gain an understanding of how the features of Spotify's music recommendation system relate to the characteristics of a particular genre.  I seek to apply the data science techniques I am learning to a subject that will be interesting to lovers of music. In addition, I seek to understand all I can about these music recommendation systems in particular, and about such recommender systems in general. 
+In the coming weeks, I will analyze four Lofi Hip Hop Spotify playlists to gain an understanding of how the features of Spotify's music recommendation system relate to the characteristics of a particular genre.  I seek to apply the data science techniques I am learning to a subject that will be interesting to lovers of music. In addition, I seek to understand all I can about these music recommendation systems in particular, and about such recommender systems in general.
 
 Of course, one must start somewhere, and due to my keen interest in the recent sounds of lofi hip hop, this first post quantitatively examines the differences between track features of four Spotify playlists containing lofi hip hop. Two playlists are user-created; two Spotify-curated.
 

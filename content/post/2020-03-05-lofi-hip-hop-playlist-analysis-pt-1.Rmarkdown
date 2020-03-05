@@ -145,7 +145,7 @@ tracks %>% ggplot(aes(x = playlist, y = energy)) +
 
 Interestingly, it appears that the ChilledCow playlist shares a similar median track energy with Spotify's Lush Lofi, while Strange Fruits' playlist shares a similar median with Spotify's Lo-Fi Beats.
 
-We shall test the null hypothesis $H_0: \mu_1=\mu_2=\mu_3=\mu_4$, i.e., that the mean energies are the same for all playlists.  We shall actually use Tukey's method to test this hypothesis between each pair of playlists.
+We shall test the null hypothesis that the mean energies are the same for all playlists.  We shall actually use Tukey's method to test this hypothesis between each pair of playlists.
 ```{r}
 anova1 <- aov(energy ~ playlist, data = tracks)
 TukeyHSD(anova1, conf.level = .99)

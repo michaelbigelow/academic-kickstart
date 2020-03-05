@@ -198,23 +198,23 @@ Again, the Strange Fruits and Lofi Beats playlists visually appear more similar,
 
 ```r
 anova3 <- aov(acousticness ~ playlist, data = tracks)
-TukeyHSD(anova2, conf.level = .99)
+TukeyHSD(anova3, conf.level = .99)
 ```
 
 ```
 ##   Tukey multiple comparisons of means
 ##     99% family-wise confidence level
 ## 
-## Fit: aov(formula = valence ~ playlist, data = tracks)
+## Fit: aov(formula = acousticness ~ playlist, data = tracks)
 ## 
 ## $playlist
-##                                    diff          lwr         upr     p adj
-## Sp_LoFiBeats-ChilledCow     0.051104293 -0.007588564  0.10979715 0.0337731
-## Sp_LushLoFi-ChilledCow      0.060151544 -0.019944872  0.14024796 0.0889727
-## StrangeFruits-ChilledCow   -0.033206299 -0.101161662  0.03474906 0.4227332
-## Sp_LushLoFi-Sp_LoFiBeats    0.009047251 -0.062755496  0.08085000 0.9793646
-## StrangeFruits-Sp_LoFiBeats -0.084310593 -0.142259965 -0.02636122 0.0000372
-## StrangeFruits-Sp_LushLoFi  -0.093357844 -0.172911060 -0.01380463 0.0014960
+##                                   diff         lwr         upr     p adj
+## Sp_LoFiBeats-ChilledCow    -0.11781097 -0.18988184 -0.04574010 0.0000024
+## Sp_LushLoFi-ChilledCow      0.05095324 -0.04739976  0.14930623 0.3694387
+## StrangeFruits-ChilledCow   -0.06907739 -0.15252199  0.01436721 0.0486423
+## Sp_LushLoFi-Sp_LoFiBeats    0.16876420  0.08059527  0.25693313 0.0000000
+## StrangeFruits-Sp_LoFiBeats  0.04873358 -0.02242435  0.11989150 0.1419780
+## StrangeFruits-Sp_LushLoFi  -0.12003063 -0.21771661 -0.02234464 0.0007684
 ```
 
 At the 99% confidence level we see no evidence to reject the null hypothesis of equal mean acousticness pair-wise between the pairs listed in row 1, 4, or 6.
@@ -227,23 +227,23 @@ Lush Lofi appears to have a shorter average track duration; we will carry out an
 
 ```r
 anova4 <- aov(duration_s ~ playlist, data = tracks)
-TukeyHSD(anova2, conf.level = .99)
+TukeyHSD(anova4, conf.level = .99)
 ```
 
 ```
 ##   Tukey multiple comparisons of means
 ##     99% family-wise confidence level
 ## 
-## Fit: aov(formula = valence ~ playlist, data = tracks)
+## Fit: aov(formula = duration_s ~ playlist, data = tracks)
 ## 
 ## $playlist
-##                                    diff          lwr         upr     p adj
-## Sp_LoFiBeats-ChilledCow     0.051104293 -0.007588564  0.10979715 0.0337731
-## Sp_LushLoFi-ChilledCow      0.060151544 -0.019944872  0.14024796 0.0889727
-## StrangeFruits-ChilledCow   -0.033206299 -0.101161662  0.03474906 0.4227332
-## Sp_LushLoFi-Sp_LoFiBeats    0.009047251 -0.062755496  0.08085000 0.9793646
-## StrangeFruits-Sp_LoFiBeats -0.084310593 -0.142259965 -0.02636122 0.0000372
-## StrangeFruits-Sp_LushLoFi  -0.093357844 -0.172911060 -0.01380463 0.0014960
+##                                   diff        lwr       upr     p adj
+## Sp_LoFiBeats-ChilledCow      2.7029738  -6.415124 11.821072 0.7913367
+## Sp_LushLoFi-ChilledCow     -15.7715463 -28.214747 -3.328346 0.0004732
+## StrangeFruits-ChilledCow     0.6168182  -9.940236 11.173872 0.9978472
+## Sp_LushLoFi-Sp_LoFiBeats   -18.4745201 -29.629276 -7.319764 0.0000017
+## StrangeFruits-Sp_LoFiBeats  -2.0861556 -11.088751  6.916440 0.8878235
+## StrangeFruits-Sp_LushLoFi   16.3883646   4.029552 28.747177 0.0002213
 ```
 
 Looking at the p-values given for each pair, the p-values <0.01 for the pairings between Lush Lofi and any other track indicate at the 99% confidence level that its duration differs.  Looking at the column labeled "diff", we see that the tracks are generally around 15 to 20 seconds shorter.

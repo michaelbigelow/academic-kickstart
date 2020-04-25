@@ -28,8 +28,8 @@ projects: []
 <h1>Background</h1>
 <p>The following are several proof solutions I wrote during a graduate machine learning course during a unit covering statistical/computational learning theory, specifically concerning Vapnik-Chervonenkis dimension of a hypothesis class of learners.</p>
 </div>
-<div id="question-1" class="section level1">
-<h1>Question 1</h1>
+<div id="proof-1-simple-classifier" class="section level1">
+<h1>Proof 1: Simple Classifier</h1>
 <p>Consider a hypothesis class <span class="math inline">\(\mathcal{H}\)</span> defined as a union of two real valued intervals [a, b] and [c, d] on the number line. A point <span class="math inline">\(x\)</span> is labeled as positive if it is inside in either of the two intervals, otherwise it is labeled as negative; i.e. <span class="math inline">\(x\)</span> is “+” if and only if <span class="math inline">\(a \le x \le b\)</span> or <span class="math inline">\(c \le x \le d\)</span>. Determine the VC dimension of the hypothesis class <span class="math inline">\(\mathcal{H}\)</span>.</p>
 <div id="solution" class="section level2">
 <h2>Solution</h2>
@@ -51,9 +51,9 @@ we must have
 <span class="math display">\[a \leqslant x_1 \leqslant b &lt; x_2 &lt;x_3 &lt;x_4 &lt;c \leqslant x_5 \leqslant d\]</span> and in this case there is no <span class="math inline">\(h \in \mathcal{H}\)</span> such that <span class="math inline">\(h(x_3)=1\)</span>. Hence <span class="math inline">\(VC(\mathcal{H}) = 4\)</span>. <span class="math inline">\(\square\)</span></p>
 </div>
 </div>
-<div id="question-2" class="section level1">
-<h1>Question 2</h1>
-<p>Consider a more general hypothesis class <span class="math inline">\(\mathcal{H}\)</span> consisting of a union of <span class="math inline">\(k\)</span> real valued intervals. Determine the VC dimension of the hypothesis class <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<div id="proof-2-simple-classifier" class="section level1">
+<h1>Proof 2: Simple Classifier</h1>
+<p>Consider a more general hypothesis class <span class="math inline">\(\mathcal{H}\)</span> consisting of a union of <span class="math inline">\(k\)</span> real-valued intervals. Determine the VC dimension of the hypothesis class <span class="math inline">\(\mathcal{H}\)</span>.</p>
 <div id="solution-1" class="section level2">
 <h2>Solution</h2>
 <p>The above argument shows that for five points we needed another interval to shatter <span class="math inline">\(S,\)</span> namely three intervals. Indeed, it is easy to see that three intervals will suffice for <span class="math inline">\(d=6\)</span> points as well, since any set of four or more positively-labeled points will contain two or more adjacent positively-labeled points which can be covered by a single interval, leaving two intervals to cover the remaining points (of which there will be at most two).</p>
@@ -66,18 +66,18 @@ notice that d is an odd integer and for the labeling that makes alternating poin
 <p>Hence for a hypothesis class <span class="math inline">\(\mathcal{H}\)</span> consisting of a union of <span class="math inline">\(k\)</span> real-valued intervals, <span class="math inline">\(VC(\mathcal{H})= 2k.\)</span> <span class="math inline">\(\square\)</span></p>
 </div>
 </div>
-<div id="question-3" class="section level1">
-<h1>Question 3</h1>
+<div id="proof-3-comparing-hypothesis-classes" class="section level1">
+<h1>Proof 3: Comparing Hypothesis Classes</h1>
 <p>Given two hypothesis classes, <span class="math inline">\(\mathcal{H}\)</span> and <span class="math inline">\(\mathcal{G}\)</span>, prove that if <span class="math inline">\(\mathcal{H} \subseteq \mathcal{G}\)</span> then <span class="math inline">\(VC(\mathcal{H})\leq VC(\mathcal{G})\)</span>.</p>
 <div id="solution-2" class="section level2">
 <h2>Solution</h2>
 <p>Let <span class="math inline">\(\mathcal{H}\subseteq \mathcal{G}\)</span> and assume <span class="math inline">\(VC(\mathcal{H})&gt;VC(\mathcal{G})\)</span> toward a contradiction.<br />
 This implies that for any arrangement of <span class="math inline">\(d=VC(\mathcal{H})\)</span> points <span class="math inline">\(x \in S,\)</span> there is no <span class="math inline">\(g\in \mathcal{G}\)</span> such that <span class="math inline">\(g(x)=f(x).\)</span> But we know that for some arrangement of <span class="math inline">\(d=VC(\mathcal{H})\)</span> points <span class="math inline">\(x \in S\)</span> there is a function <span class="math inline">\(h \in \mathcal{H}\)</span> such that <span class="math inline">\(h(x)=f(x)\)</span> by definition of <span class="math inline">\(VC(\mathcal{H}).\)</span> But this is a contradition, since <span class="math inline">\(\mathcal{H}\subseteq \mathcal{G}\)</span> and the definition of subset means that
-<span class="math inline">\(\forall h(x) \in \mathcal{H}, h(x)=g(x)\in \mathcal{G}. \square\)</span></p>
+<span class="math inline">\(\forall \;h \in \mathcal{H}, \exists \;g \in \mathcal{G}\)</span> such that <span class="math inline">\(h(x)=g(x) \;\forall\;x \in S. \square\)</span></p>
 </div>
 </div>
-<div id="question-4" class="section level1">
-<h1>Question 4</h1>
+<div id="proof-4-vc-dimension-and-hypothesis-class-size" class="section level1">
+<h1>Proof 4: VC Dimension and Hypothesis Class Size</h1>
 <p>Let <span class="math inline">\(\mathcal{H}\)</span> be a finite concept class, show that if <span class="math inline">\(VC(\mathcal{H})=d\)</span>, then <span class="math inline">\(|\mathcal{H}|\geq 2^d\)</span>.</p>
 <div id="solution-3" class="section level2">
 <h2>Solution</h2>

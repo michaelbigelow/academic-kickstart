@@ -28,8 +28,8 @@ projects: []
 <h1>Introduction</h1>
 <p>Below follow several proofs I wrote throughout a graduate course in linear models. The proofs range from linear algebra concepts to construction of linear models given data with certain properties.</p>
 </div>
-<div id="question-1" class="section level1">
-<h1>Question 1</h1>
+<div id="proof-1-eigenvalues-of-projection-matrices" class="section level1">
+<h1>Proof 1: Eigenvalues of Projection Matrices</h1>
 <p>Let <span class="math inline">\(P\)</span> be a projection matrix and let <span class="math inline">\(\lambda\)</span> be an eigenvalue of <span class="math inline">\(P\)</span>. Prove that <span class="math inline">\(\lambda \in \{0,1\}\)</span></p>
 <div id="solution" class="section level2">
 <h2>Solution</h2>
@@ -44,8 +44,8 @@ and since eigenvectors are by definition nonzero, we get
 which only makes sense if <span class="math inline">\(\lambda \in \{0,1\}\)</span>.</p>
 </div>
 </div>
-<div id="question-2" class="section level1">
-<h1>Question 2</h1>
+<div id="proof-2-multivariate-standard-normal" class="section level1">
+<h1>Proof 2: Multivariate Standard Normal</h1>
 <p>Let <span class="math inline">\(X \sim N_3(0,I_3)\)</span>. Prove that
 <span class="math display">\[\frac{1}{3}[(X_1-X_2)^2 + (X_2-X_3)^2 + (X_1-X_3)^2] \sim \chi^2_2.\]</span></p>
 <div id="solution-1" class="section level2">
@@ -67,8 +67,8 @@ But <span class="math inline">\(A\)</span> is idempotent, so we have <span class
 Since <span class="math inline">\(A\)</span> is a projection matrix, <span class="math inline">\(\text{rank}(A) = \text{tr}(A) = 2\)</span> and so it has two eigenvalues <span class="math inline">\(\lambda = 1\)</span> and one eigenvalue <span class="math inline">\(\lambda=0\)</span>. Hence in the expression above, <span class="math inline">\(d_1 = d_2 = 1\)</span> and <span class="math inline">\(d_3=0\)</span>, meaning we have a sum of two independent chi-squared random variables, which is distributed <span class="math inline">\(\chi^2_2\)</span>.</p>
 </div>
 </div>
-<div id="question-3" class="section level1">
-<h1>Question 3</h1>
+<div id="proof-3-standard-multivariate-normal" class="section level1">
+<h1>Proof 3: Standard Multivariate Normal</h1>
 <p>Let <span class="math inline">\(X \sim N_3(0,I_3)\)</span> and let
 <span class="math display">\[Y_1=X_1+X_2,\]</span>
 <span class="math display">\[Y_2=X_1-X_2+X_3,\]</span>
@@ -118,8 +118,8 @@ which shows that <span class="math inline">\(\mathbf{Cov}[Y_i, Y_j]=0\; \forall 
 <span class="math display">\[Y_3 \sim N(0,6).\]</span></p>
 </div>
 </div>
-<div id="question-4" class="section level1">
-<h1>Question 4</h1>
+<div id="proof-4-general-linear-model" class="section level1">
+<h1>Proof 4: General Linear Model</h1>
 <p>Suppose <span class="math inline">\(Y_{1,1},...,Y_{1,n}\)</span> is an iid sample from a <span class="math inline">\(N(\beta,\sigma^2)\)</span> population, and <span class="math inline">\(Y_{2,1},...,Y_{2,n}\)</span> an independent iid sample from a <span class="math inline">\(N(3\beta,\sigma^2)\)</span> population.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Is this a general linear model? Explain carefully.</p></li>
@@ -145,8 +145,8 @@ where <span class="math inline">\(S^2:= \frac{1}{2n-1} RSS\)</span> is computed
 </ol>
 </div>
 </div>
-<div id="question-5" class="section level1">
-<h1>Question 5</h1>
+<div id="proof-5-general-linear-model" class="section level1">
+<h1>Proof 5: General Linear Model</h1>
 <p>Suppose <span class="math inline">\(Y_{1,1},...,Y_{1,n}\)</span> is an iid sample from a <span class="math inline">\(N(\beta,\sigma^2)\)</span> population, and <span class="math inline">\(Y_{2,1},...,Y_{2,n}\)</span> an independent iid sample from a <span class="math inline">\(N(\beta,3\sigma^2)\)</span> population.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Is this a general linear model? Explain carefully.</p></li>

@@ -25,7 +25,7 @@ projects: []
 # Background
 The following are several proof solutions I wrote during a graduate machine learning course during a unit covering statistical/computational learning theory, specifically concerning Vapnik-Chervonenkis dimension of a hypothesis class of learners.
 
-# Question 1
+# Proof 1: Simple Classifier
 Consider a hypothesis class $\mathcal{H}$ defined as a union of two real valued intervals [a, b] and [c, d] on the number line. A point $x$ is labeled as positive if it is inside in either of the two intervals, otherwise it is labeled as negative; i.e. $x$ is "+" if and only if $a \le x \le b$ or  $c \le x \le d$. Determine the VC dimension of the hypothesis class $\mathcal{H}$.
 
 ## Solution
@@ -47,8 +47,8 @@ $$f(x_1)=f(x_5)=1,f(x_2)=f(x_4)=0$$
 we must have
 $$a \leqslant x_1 \leqslant b < x_2 <x_3 <x_4 <c \leqslant x_5 \leqslant d$$ and in this case there is no $h \in \mathcal{H}$ such that $h(x_3)=1$. Hence $VC(\mathcal{H}) = 4$. $\square$
 
-# Question 2
-Consider a more general hypothesis class $\mathcal{H}$ consisting of a union of $k$ real valued intervals. Determine the VC dimension of the hypothesis class $\mathcal{H}$.
+# Proof 2: Simple Classifier
+Consider a more general hypothesis class $\mathcal{H}$ consisting of a union of $k$ real-valued intervals. Determine the VC dimension of the hypothesis class $\mathcal{H}$.
 
 ## Solution
 The above argument shows that for five points we needed another interval to shatter $S,$ namely three intervals.  Indeed, it is easy to see that three intervals will suffice for $d=6$ points as well, since any set of four or more positively-labeled points will contain two or more adjacent positively-labeled points which can be covered by a single interval, leaving two intervals to cover the remaining points (of which there will be at most two).
@@ -63,15 +63,15 @@ $$\frac{(2k+1)+1}{2} = \frac{2k+2}{2} = k+1$$ intervals, and we only have k, so 
 
 Hence for a hypothesis class $\mathcal{H}$ consisting of a union of $k$ real-valued intervals, $VC(\mathcal{H})= 2k.$ $\square$
 
-# Question 3
+# Proof 3: Comparing Hypothesis Classes
 Given two hypothesis classes, $\mathcal{H}$ and $\mathcal{G}$, prove that if $\mathcal{H} \subseteq \mathcal{G}$ then $VC(\mathcal{H})\leq VC(\mathcal{G})$.
 
 ## Solution
 Let $\mathcal{H}\subseteq \mathcal{G}$ and assume $VC(\mathcal{H})>VC(\mathcal{G})$ toward a contradiction.  
 This implies that for any arrangement of $d=VC(\mathcal{H})$ points $x \in S,$ there is no $g\in \mathcal{G}$ such that $g(x)=f(x).$  But we know that for some arrangement of $d=VC(\mathcal{H})$ points $x \in S$ there is a function $h \in \mathcal{H}$ such that $h(x)=f(x)$ by definition of $VC(\mathcal{H}).$  But this is a contradition, since $\mathcal{H}\subseteq \mathcal{G}$ and the definition of subset means that 
-$\forall h(x) \in \mathcal{H}, h(x)=g(x)\in \mathcal{G}. \square$
+$\forall \;h \in \mathcal{H}, \exists \;g \in \mathcal{G}$ such that $h(x)=g(x) \;\forall\;x \in S. \square$
 
-# Question 4
+# Proof 4: VC Dimension and Hypothesis Class Size
 Let $\mathcal{H}$ be a finite concept class, show that if $VC(\mathcal{H})=d$, then $|\mathcal{H}|\geq 2^d$.
 
 ## Solution

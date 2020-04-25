@@ -77,15 +77,15 @@ import pandas as pd
 forsythedesign = pd.DataFrame(forsythehayes(x_i)[0])
 ```
 
-```{r, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 forsythedesign <- py$forsythedesign
 as.tibble(forsythedesign)
 ```
 
 If we are curious about the $a_{r+1}$ and $b_r$ values that our function used at each iteration to compute these polynomials, we can easily view them:
 ```{python, echo=FALSE}
-print('a = \n', np.round(forsythehayes(x_i)[1][1:],4))
-print('b = \n', np.round(forsythehayes(x_i)[2],4))
+print('a = ', np.round(forsythehayes(x_i)[1][1:],4))
+print('b = ', np.round(forsythehayes(x_i)[2],4))
 ```
 
 To show that our columns $\phi_i$ are orthonormal,

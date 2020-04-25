@@ -1,8 +1,8 @@
 ---
-title: Selected Proofs and Problems from Linear Models
+title: Selected Proofs from Linear Models
 author: Michael Bigelow
 date: '2019-12-09'
-slug: selected-proofs-and-problems-from-linear-models
+slug: selected-proofs-from-linear-models
 categories:
   - Linear Models
 tags:
@@ -11,7 +11,7 @@ tags:
   - mathematics
   - linear algebra
 subtitle: ''
-summary: 'Six key problems and solutions from a graduate course in linear models.'
+summary: 'Five key proofs from a graduate course in linear models.'
 authors: [admin]
 lastmod: '2019-12-09T17:56:24-07:00'
 featured: yes
@@ -26,7 +26,7 @@ projects: []
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Below follow several problems from a graduate course in linear models, together with my solutions. Most are proofs, and in general the progression is from linear algebra concepts to construction of linear models given data with certain properties.</p>
+<p>Below follow several proofs I wrote throughout a graduate course in linear models. The proofs range from linear algebra concepts to construction of linear models given data with certain properties.</p>
 </div>
 <div id="question-1" class="section level1">
 <h1>Question 1</h1>
@@ -69,53 +69,12 @@ Since <span class="math inline">\(A\)</span> is a projection matrix, <span class
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3</h1>
-<p>Let <span class="math inline">\(T=(T_1, T_2, T_3)&#39;\)</span> with <span class="math inline">\(\mathbf{E}[T] = 0\)</span> and
-<span class="math display">\[\mathbf{Var}(T)=\begin{bmatrix} 
-5 &amp; 2 &amp; 3 \\
-2 &amp; 3 &amp; 0 \\
-3 &amp; 0 &amp; 3
-\end{bmatrix}.\]</span></p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Let <span class="math inline">\(Z=(Z_1,Z_2)&#39;\)</span> with <span class="math inline">\(Z_1=T_1+T_2\)</span> and <span class="math inline">\(Z_2=T_1+T_2+T_3.\)</span> Find <span class="math inline">\(\mathbf{E}[Z]\)</span> and <span class="math inline">\(\mathbf{Var}[Z]\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(A= \bigl[ \begin{smallmatrix} 1 &amp; 1 \\ 1 &amp; 2 \end{smallmatrix} \bigr]\)</span> and <span class="math inline">\(Q = Z&#39;AZ\)</span>. Find <span class="math inline">\(\mathbf{E}[Q]\)</span>.</p></li>
-</ol>
-<div id="solution-2" class="section level2">
-<h2>Solution</h2>
-<ol style="list-style-type: lower-alpha">
-<li>First, let
-<span class="math display">\[B=\begin{bmatrix} 
-1 &amp; 1 &amp; 0 \\
-1 &amp; 1 &amp; 1 
-\end{bmatrix}\]</span>
-then <span class="math inline">\(Z = BT\)</span>, and we have
-<span class="math display">\[\mathbf{E}[Z]=\mathbf{E}[BT]=B\mathbf{E}[T]=B\cdot0=0\]</span>
-<span class="math display">\[\mathbf{Var}[Z] = \mathbf{Var}[BT] =B \mathbf{Var}[T]B&#39;\]</span>
-<span class="math display">\[=\begin{bmatrix} 
-1 &amp; 1 &amp; 0 \\
-1 &amp; 1 &amp; 1 
-\end{bmatrix}\begin{bmatrix} 
-7 &amp; 10 \\
-5 &amp; 5 \\
-3 &amp; 6
-\end{bmatrix} =\begin{bmatrix} 
-12 &amp; 15 \\
-15 &amp; 21  
-\end{bmatrix}.\]</span></li>
-<li><span class="math display">\[\mathbf{E}[Q]=\mathbf{E}[Z&#39;AZ] = tr(A \Sigma)+\mu&#39;A\mu\]</span>
-and from (a) we know that <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\Sigma = \bigl[ \begin{smallmatrix} 12 &amp; 15 \\ 15 &amp; 21 \end{smallmatrix} \bigr]\)</span>, so we have
-<span class="math display">\[=tr \bigl( \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\begin{bmatrix} 12 &amp; 15 \\ 15 &amp; 21 \end{bmatrix} \bigr)+0\]</span>
-<span class="math display">\[=tr \bigl(\begin{bmatrix} 27 &amp; 36 \\ 42 &amp; 57 \end{bmatrix}\bigr) = 27+57 = 84\]</span></li>
-</ol>
-</div>
-</div>
-<div id="question-4" class="section level1">
-<h1>Question 4</h1>
 <p>Let <span class="math inline">\(X \sim N_3(0,I_3)\)</span> and let
 <span class="math display">\[Y_1=X_1+X_2,\]</span>
 <span class="math display">\[Y_2=X_1-X_2+X_3,\]</span>
 <span class="math display">\[Y_3=X_1-X_2-2X_3.\]</span>
 Prove that <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span>, and <span class="math inline">\(Y_3\)</span> are independent. What are their distributions?</p>
-<div id="solution-3" class="section level2">
+<div id="solution-2" class="section level2">
 <h2>Solution</h2>
 <p>Let
 <span class="math display">\[A=\begin{bmatrix} 
@@ -159,17 +118,17 @@ which shows that <span class="math inline">\(\mathbf{Cov}[Y_i, Y_j]=0\; \forall 
 <span class="math display">\[Y_3 \sim N(0,6).\]</span></p>
 </div>
 </div>
-<div id="question-5" class="section level1">
-<h1>Question 5</h1>
+<div id="question-4" class="section level1">
+<h1>Question 4</h1>
 <p>Suppose <span class="math inline">\(Y_{1,1},...,Y_{1,n}\)</span> is an iid sample from a <span class="math inline">\(N(\beta,\sigma^2)\)</span> population, and <span class="math inline">\(Y_{2,1},...,Y_{2,n}\)</span> an independent iid sample from a <span class="math inline">\(N(3\beta,\sigma^2)\)</span> population.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Is this a generalized linear model? Explain carefully.</p></li>
+<li><p>Is this a general linear model? Explain carefully.</p></li>
 <li><p>If your answer to (a) was “yes,” then find the least-squares estimator of <span class="math inline">\(\beta\)</span>, and write a t-test for <span class="math inline">\(H_0: \beta = 0\)</span>. Your test must be described explicitly in terms of the <span class="math inline">\(Y_{i,j}\)</span>’s.</p></li>
 </ol>
-<div id="solution-4" class="section level2">
+<div id="solution-3" class="section level2">
 <h2>Solution</h2>
 <ol style="list-style-type: lower-alpha">
-<li><p>Yes, it is a generalized linear model <span class="math inline">\(Y=X \beta + \varepsilon\)</span> with
+<li><p>Yes, it is a general linear model <span class="math inline">\(Y=X \beta + \varepsilon\)</span> with
 <span class="math display">\[Y&#39;=[Y_{1,1},...,Y_{1,n},Y_{2,1},...,Y_{2,n}],\;\;\;X&#39; = [1, ...,1,3,...,3]_{1\times2n},\;\;\beta=\mu,\;\;\; \varepsilon&#39;=[\varepsilon_{1,1},...,\varepsilon_{1,n},\varepsilon_{2,1},...,\varepsilon_{2,n}]\]</span>
 where <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>, and <span class="math inline">\(\varepsilon\)</span> are <span class="math inline">\(2n \times 1\)</span> and <span class="math inline">\(\beta\)</span> is <span class="math inline">\(1 \times 1\)</span>, so <span class="math inline">\(p=1\)</span>, and <span class="math inline">\(\varepsilon_{i,j} \sim N(0,\sigma^2)\)</span>.</p></li>
 <li><p>Then the least-squares estimate of <span class="math inline">\(\beta\)</span> is
@@ -186,17 +145,17 @@ where <span class="math inline">\(S^2:= \frac{1}{2n-1} RSS\)</span> is computed
 </ol>
 </div>
 </div>
-<div id="question-6" class="section level1">
-<h1>Question 6</h1>
+<div id="question-5" class="section level1">
+<h1>Question 5</h1>
 <p>Suppose <span class="math inline">\(Y_{1,1},...,Y_{1,n}\)</span> is an iid sample from a <span class="math inline">\(N(\beta,\sigma^2)\)</span> population, and <span class="math inline">\(Y_{2,1},...,Y_{2,n}\)</span> an independent iid sample from a <span class="math inline">\(N(\beta,3\sigma^2)\)</span> population.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Is this a generalized linear model? Explain carefully.</p></li>
+<li><p>Is this a general linear model? Explain carefully.</p></li>
 <li><p>If your answer to (a) was “yes,” then find the least-squares estimator of <span class="math inline">\(\beta\)</span>, and write a t-test for <span class="math inline">\(H_0: \beta = 0\)</span>. Your test must be described explicitly in terms of the <span class="math inline">\(Y_{i,j}\)</span>’s.</p></li>
 </ol>
-<div id="solution-5" class="section level2">
+<div id="solution-4" class="section level2">
 <h2>Solution</h2>
 <ol style="list-style-type: lower-alpha">
-<li><p>Yes, it is a generalized linear model <span class="math inline">\(Y=X \beta + \varepsilon\)</span> if we make one small adjustment to achieve <span class="math inline">\(\varepsilon_{i,j} \sim N(0,\sigma^2)\)</span>, since as originally stated, <span class="math inline">\(\varepsilon_{2,j} \sim N(0,3\sigma^2)\)</span>. Let the original <span class="math inline">\(Y_{2,j} \;(\sim N(\beta,3\sigma^2))\)</span> be denoted <span class="math inline">\(\widetilde{Y}_{2,j}\;(\sim N(\beta,3\sigma^2))\)</span> and define our new <span class="math inline">\(Y_{2,j} = \frac{\widetilde{Y}_{2,j}}{\sqrt3}\;(\sim N(\beta,\sigma^2))\)</span>
+<li><p>Yes, it is a general linear model <span class="math inline">\(Y=X \beta + \varepsilon\)</span> if we make one small adjustment to achieve <span class="math inline">\(\varepsilon_{i,j} \sim N(0,\sigma^2)\)</span>, since as originally stated, <span class="math inline">\(\varepsilon_{2,j} \sim N(0,3\sigma^2)\)</span>. Let the original <span class="math inline">\(Y_{2,j} \;(\sim N(\beta,3\sigma^2))\)</span> be denoted <span class="math inline">\(\widetilde{Y}_{2,j}\;(\sim N(\beta,3\sigma^2))\)</span> and define our new <span class="math inline">\(Y_{2,j} = \frac{\widetilde{Y}_{2,j}}{\sqrt3}\;(\sim N(\beta,\sigma^2))\)</span>
 so we have
 <span class="math display">\[Y&#39;=[Y_{1,1},...,Y_{1,n},Y_{2,1},...,Y_{2,n}],\;\;\;X&#39; = \left[1, ...,1,\frac{1}{\sqrt3},...,\frac{1}{\sqrt3}\right]_{1\times2n},\;\;\beta=\mu,\;\;\; \varepsilon&#39;=[\varepsilon_{1,1},...,\varepsilon_{1,n},\varepsilon_{2,1},...,\varepsilon_{2,n}]\]</span>
 where <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>, and <span class="math inline">\(\varepsilon\)</span> are <span class="math inline">\(2n \times 1\)</span> and <span class="math inline">\(\beta\)</span> is <span class="math inline">\(1 \times 1\)</span>, so <span class="math inline">\(p=1\)</span>.</p></li>

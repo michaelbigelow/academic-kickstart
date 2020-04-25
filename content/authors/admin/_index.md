@@ -18,14 +18,14 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: I seek to use data science methods to solve the most interesting problems facing our world today.
+bio: Exploring topics of interest using statistical methods.
 
 interests:
 - mathematics and statistics
 - machine learning
 - population health analytics
 - business intelligence
-- music recommendation systems
+- recommendation systems
 - improvised music
 
 education:

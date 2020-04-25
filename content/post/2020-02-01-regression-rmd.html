@@ -61,8 +61,6 @@ def forsythehayes(x, poly=4):
 <p>Again using Python, we declare our data of interest <span class="math inline">\(x_i := \frac{i}{100}\)</span> for <span class="math inline">\(i = 1, ...,100\)</span>:</p>
 <pre class="python"><code>x_i = np.array([(i+1)/100 for i in range(100)])</code></pre>
 <p>We then call our Forsythe-Hayes function with our <span class="math inline">\(x_i\)</span> as input, and view an R dataframe of the design matrix <span class="math inline">\(\mathbf{X}\)</span> returned by the Python function:</p>
-<pre class="r"><code>forsythedesign &lt;- py$forsythedesign
-as.tibble(forsythedesign)</code></pre>
 <pre><code>## # A tibble: 100 x 5
 ##      `0`    `1`   `2`     `3`     `4`
 ##    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -78,10 +76,8 @@ as.tibble(forsythedesign)</code></pre>
 ## 10   0.1 -0.140 0.108 -0.0302 -0.0605
 ## # … with 90 more rows</code></pre>
 <p>If we are curious about the <span class="math inline">\(a_{r+1}\)</span> and <span class="math inline">\(b_r\)</span> values that our function used at each iteration to compute these polynomials, we can easily view them:</p>
-<pre><code>## a = 
-##  [0.505 0.505 0.505 0.505]</code></pre>
-<pre><code>## b = 
-##  [1.     0.0833 0.0666 0.0642]</code></pre>
+<pre><code>## a =  [0.505 0.505 0.505 0.505]</code></pre>
+<pre><code>## b =  [1.     0.0833 0.0666 0.0642]</code></pre>
 <p>To show that our columns <span class="math inline">\(\phi_i\)</span> are orthonormal,
 <span class="math display">\[\sum_{j=1}^{100}\phi_k(x_j)\phi_l(x_j)= \begin{cases} 0 &amp; k \neq l \\
       1 &amp; k = l 

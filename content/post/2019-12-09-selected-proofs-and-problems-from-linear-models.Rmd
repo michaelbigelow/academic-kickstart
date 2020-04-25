@@ -1,8 +1,8 @@
 ---
-title: Selected Proofs and Problems from Linear Models
+title: Selected Proofs from Linear Models
 author: Michael Bigelow
 date: '2019-12-09'
-slug: selected-proofs-and-problems-from-linear-models
+slug: selected-proofs-from-linear-models
 categories:
   - Linear Models
 tags:
@@ -11,7 +11,7 @@ tags:
   - mathematics
   - linear algebra
 subtitle: ''
-summary: 'Six key problems and solutions from a graduate course in linear models.'
+summary: 'Five key proofs from a graduate course in linear models.'
 authors: [admin]
 lastmod: '2019-12-09T17:56:24-07:00'
 featured: yes
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
-Below follow several problems from a graduate course in linear models, together with my solutions.  Most are proofs, and in general the progression is from linear algebra concepts to construction of linear models given data with certain properties.
+Below follow several proofs I wrote throughout a graduate course in linear models.  The proofs range from linear algebra concepts to construction of linear models given data with certain properties.
 
 # Question 1
 Let $P$ be a projection matrix and let $\lambda$ be an eigenvalue of $P$.  Prove that $\lambda \in \{0,1\}$
@@ -66,43 +66,6 @@ $$=\sum_{i=1}^{3} d_iZ_i^2.$$
 Since $A$ is a projection matrix, $\text{rank}(A) = \text{tr}(A) = 2$ and so it has two eigenvalues $\lambda = 1$ and one eigenvalue $\lambda=0$.  Hence in the expression above, $d_1 = d_2 = 1$ and $d_3=0$, meaning we have a sum of two independent chi-squared random variables, which is distributed $\chi^2_2$.
 
 # Question 3
-Let $T=(T_1, T_2, T_3)'$ with $\mathbf{E}[T] = 0$ and
-$$\mathbf{Var}(T)=\begin{bmatrix} 
-5 & 2 & 3 \\
-2 & 3 & 0 \\
-3 & 0 & 3
-\end{bmatrix}.$$
-
-(a) Let $Z=(Z_1,Z_2)'$ with $Z_1=T_1+T_2$ and $Z_2=T_1+T_2+T_3.$ Find $\mathbf{E}[Z]$ and $\mathbf{Var}[Z]$.
-
-(b) Let $A= \bigl[ \begin{smallmatrix} 1 & 1 \\ 1 & 2 \end{smallmatrix} \bigr]$ and $Q = Z'AZ$. Find $\mathbf{E}[Q]$.
-
-## Solution
-(a) First, let
-$$B=\begin{bmatrix} 
-1 & 1 & 0 \\
-1 & 1 & 1 
-\end{bmatrix}$$
-then $Z = BT$, and we have 
-$$\mathbf{E}[Z]=\mathbf{E}[BT]=B\mathbf{E}[T]=B\cdot0=0$$
-$$\mathbf{Var}[Z] = \mathbf{Var}[BT] =B \mathbf{Var}[T]B'$$
-$$=\begin{bmatrix} 
-1 & 1 & 0 \\
-1 & 1 & 1 
-\end{bmatrix}\begin{bmatrix} 
-7 & 10 \\
-5 & 5 \\
-3 & 6
-\end{bmatrix} =\begin{bmatrix} 
-12 & 15 \\
-15 & 21  
-\end{bmatrix}.$$
-(b) $$\mathbf{E}[Q]=\mathbf{E}[Z'AZ] = tr(A \Sigma)+\mu'A\mu$$ 
-and from (a) we know that $\mu=0$ and $\Sigma = \bigl[ \begin{smallmatrix} 12 & 15 \\ 15 & 21 \end{smallmatrix} \bigr]$, so we have 
-$$=tr \bigl( \begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix}\begin{bmatrix} 12 & 15 \\ 15 & 21 \end{bmatrix} \bigr)+0$$
-$$=tr \bigl(\begin{bmatrix} 27 & 36 \\ 42 & 57 \end{bmatrix}\bigr) = 27+57 = 84$$
-
-# Question 4
 Let $X \sim N_3(0,I_3)$ and let 
 $$Y_1=X_1+X_2,$$
 $$Y_2=X_1-X_2+X_3,$$
@@ -153,15 +116,15 @@ $$Y_1 \sim N(0,2),$$
 $$Y_2 \sim N(0,3),$$
 $$Y_3 \sim N(0,6).$$
 
-# Question 5
+# Question 4
 Suppose $Y_{1,1},...,Y_{1,n}$ is an iid sample from a $N(\beta,\sigma^2)$ population, and $Y_{2,1},...,Y_{2,n}$ an independent iid sample from a $N(3\beta,\sigma^2)$ population.
 
-(a) Is this a generalized linear model? Explain carefully.
+(a) Is this a general linear model? Explain carefully.
 
 (b) If your answer to (a) was "yes," then find the least-squares estimator of $\beta$, and write a t-test for $H_0: \beta = 0$.  Your test must be described explicitly in terms of the $Y_{i,j}$'s.
 
 ## Solution
-(a) Yes, it is a generalized linear model $Y=X \beta + \varepsilon$ with
+(a) Yes, it is a general linear model $Y=X \beta + \varepsilon$ with
 $$Y'=[Y_{1,1},...,Y_{1,n},Y_{2,1},...,Y_{2,n}],\;\;\;X' = [1, ...,1,3,...,3]_{1\times2n},\;\;\beta=\mu,\;\;\; \varepsilon'=[\varepsilon_{1,1},...,\varepsilon_{1,n},\varepsilon_{2,1},...,\varepsilon_{2,n}]$$
 where $Y$, $X$, and $\varepsilon$ are $2n \times 1$ and $\beta$ is $1 \times 1$, so $p=1$, and $\varepsilon_{i,j} \sim N(0,\sigma^2)$.
 
@@ -177,15 +140,15 @@ $$\hat{\beta} \pm St^{\alpha/2}_{2n-1} \sqrt{X'X}$$
 where $S^2:= \frac{1}{2n-1} RSS$ is computed
 $$S^2= \frac{1}{2n-1} \left[\sum_{j=1}^{n}(Y_{1,j}-\hat{\beta})^2 + \sum_{j=1}^{n}(Y_{2,j}-3\hat{\beta})^2\right].$$
 
-# Question 6
+# Question 5
 Suppose $Y_{1,1},...,Y_{1,n}$ is an iid sample from a $N(\beta,\sigma^2)$ population, and $Y_{2,1},...,Y_{2,n}$ an independent iid sample from a $N(\beta,3\sigma^2)$ population.
 
-(a) Is this a generalized linear model? Explain carefully.
+(a) Is this a general linear model? Explain carefully.
 
 (b) If your answer to (a) was "yes," then find the least-squares estimator of $\beta$, and write a t-test for $H_0: \beta = 0$.  Your test must be described explicitly in terms of the $Y_{i,j}$'s.
 
 ## Solution
-(a) Yes, it is a generalized linear model $Y=X \beta + \varepsilon$ if we make one small adjustment to achieve $\varepsilon_{i,j} \sim N(0,\sigma^2)$, since as originally stated, $\varepsilon_{2,j} \sim N(0,3\sigma^2)$. Let the original $Y_{2,j} \;(\sim N(\beta,3\sigma^2))$ be denoted $\widetilde{Y}_{2,j}\;(\sim N(\beta,3\sigma^2))$ and define our new $Y_{2,j} = \frac{\widetilde{Y}_{2,j}}{\sqrt3}\;(\sim N(\beta,\sigma^2))$
+(a) Yes, it is a general linear model $Y=X \beta + \varepsilon$ if we make one small adjustment to achieve $\varepsilon_{i,j} \sim N(0,\sigma^2)$, since as originally stated, $\varepsilon_{2,j} \sim N(0,3\sigma^2)$. Let the original $Y_{2,j} \;(\sim N(\beta,3\sigma^2))$ be denoted $\widetilde{Y}_{2,j}\;(\sim N(\beta,3\sigma^2))$ and define our new $Y_{2,j} = \frac{\widetilde{Y}_{2,j}}{\sqrt3}\;(\sim N(\beta,\sigma^2))$
 so we have
 $$Y'=[Y_{1,1},...,Y_{1,n},Y_{2,1},...,Y_{2,n}],\;\;\;X' = \left[1, ...,1,\frac{1}{\sqrt3},...,\frac{1}{\sqrt3}\right]_{1\times2n},\;\;\beta=\mu,\;\;\; \varepsilon'=[\varepsilon_{1,1},...,\varepsilon_{1,n},\varepsilon_{2,1},...,\varepsilon_{2,n}]$$
 where $Y$, $X$, and $\varepsilon$ are $2n \times 1$ and $\beta$ is $1 \times 1$, so $p=1$.

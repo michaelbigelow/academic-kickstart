@@ -7,9 +7,9 @@ categories:
   - Philosophy of Science
 tags:
   - mathematics
-  - proofs
+  - philosophy
 subtitle: ''
-summary: 'As scientists, we hold science to be our chief way of discovering truth in the physical world; but where does mathematics stand with respect to our efforts?  Is mathematics science?'
+summary: 'Science may be our chief way of discovering truth in the physical world, but where does mathematics stand with respect to our efforts?  Is mathematics science?'
 authors: [admin]
 lastmod: '2020-02-04T01:34:41-07:00'
 featured: no

@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduction
 Below follow several proofs I wrote throughout a graduate course in linear models.  The proofs range from linear algebra concepts to construction of linear models given data with certain properties.
 
-# Question 1
+# Proof 1: Eigenvalues of Projection Matrices
 Let $P$ be a projection matrix and let $\lambda$ be an eigenvalue of $P$.  Prove that $\lambda \in \{0,1\}$
 
 ## Solution
@@ -44,7 +44,7 @@ and since eigenvectors are by definition nonzero, we get
 $$\lambda^2=\lambda$$
 which only makes sense if $\lambda \in \{0,1\}$.
 
-# Question 2
+# Proof 2: Multivariate Standard Normal
 Let $X \sim N_3(0,I_3)$. Prove that
 $$\frac{1}{3}[(X_1-X_2)^2 + (X_2-X_3)^2 + (X_1-X_3)^2] \sim \chi^2_2.$$
 
@@ -65,7 +65,7 @@ But $A$ is idempotent, so we have $A^2 = A$, which means that all its eigenvalue
 $$=\sum_{i=1}^{3} d_iZ_i^2.$$
 Since $A$ is a projection matrix, $\text{rank}(A) = \text{tr}(A) = 2$ and so it has two eigenvalues $\lambda = 1$ and one eigenvalue $\lambda=0$.  Hence in the expression above, $d_1 = d_2 = 1$ and $d_3=0$, meaning we have a sum of two independent chi-squared random variables, which is distributed $\chi^2_2$.
 
-# Question 3
+# Proof 3: Standard Multivariate Normal
 Let $X \sim N_3(0,I_3)$ and let 
 $$Y_1=X_1+X_2,$$
 $$Y_2=X_1-X_2+X_3,$$
@@ -116,7 +116,7 @@ $$Y_1 \sim N(0,2),$$
 $$Y_2 \sim N(0,3),$$
 $$Y_3 \sim N(0,6).$$
 
-# Question 4
+# Proof 4: General Linear Model
 Suppose $Y_{1,1},...,Y_{1,n}$ is an iid sample from a $N(\beta,\sigma^2)$ population, and $Y_{2,1},...,Y_{2,n}$ an independent iid sample from a $N(3\beta,\sigma^2)$ population.
 
 (a) Is this a general linear model? Explain carefully.
@@ -140,7 +140,7 @@ $$\hat{\beta} \pm St^{\alpha/2}_{2n-1} \sqrt{X'X}$$
 where $S^2:= \frac{1}{2n-1} RSS$ is computed
 $$S^2= \frac{1}{2n-1} \left[\sum_{j=1}^{n}(Y_{1,j}-\hat{\beta})^2 + \sum_{j=1}^{n}(Y_{2,j}-3\hat{\beta})^2\right].$$
 
-# Question 5
+# Proof 5: General Linear Model
 Suppose $Y_{1,1},...,Y_{1,n}$ is an iid sample from a $N(\beta,\sigma^2)$ population, and $Y_{2,1},...,Y_{2,n}$ an independent iid sample from a $N(\beta,3\sigma^2)$ population.
 
 (a) Is this a general linear model? Explain carefully.

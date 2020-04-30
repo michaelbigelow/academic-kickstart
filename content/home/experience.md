@@ -27,8 +27,7 @@ date_format = "Jan 2006"
   date_end = ""
   description = """
   Master's project in partnership with Intermountain's data science team: 
-  - using data mining and statistics to construct informative disease-age profiles in order to identify factors contributing to high risk in each (Jan 2020 - May 2020)
-  - supporting COVID-19 predictive modeling efforts (May 2020 - present)
+  - using data mining and statistics to construct informative disease-age profiles in order to identify factors contributing to high risk in each 
   """
 
 [[experience]]

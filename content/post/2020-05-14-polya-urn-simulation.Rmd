@@ -1,0 +1,125 @@
+---
+title: Polya Urn Simulation
+author: Michael Bigelow
+date: '2020-05-14'
+slug: polya-urn-simulation
+categories:
+  - Stochastic Processes
+tags:
+  - simulation
+  - probability
+  - martingales
+  - mathematics
+  - python
+subtitle: ''
+summary: 'We introduce the Polya Urn model and implement a simulation in Python.'
+authors: [admin]
+lastmod: '2020-05-14T21:12:05-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Sys.setenv(RETICULATE_PYTHON = '/usr/local/bin/python3')
+library(reticulate)
+library(tidyverse)
+```
+# Polya's Urn
+Polya's Urn poses an interesting probabilistic experiment.  Below we introduce the model and implement a simulation in Python to solve an exercise from Gregory Lawler's "Introduction to Stochastic Processes."
+
+## Definition
+Consider an urn with balls of two colors, red and green.  Assume that initially there is one ball of each color in the urn.  At each time step, a ball is chosen at random from the urn.  If a red ball is chosen it is returned and in addition another red ball is added to the urn.  Similarly, if a green ball is chosen, it is returned together with another green ball.  Let $X_n$ denote the number of red balls in the urn after $n$ draws.  Then $X_0 =1$ and $X_n$ is a (time-inhomogeneous) Markov chain with transitions
+$$\mathbb{P} \{X_{n+1} =k+1\; |\;X_n=k \}= \frac{k}{n+2}$$
+$$\mathbb{P} \{X_{n+1} =k\; |\;X_n=k \}= \frac{n+2-k}{n+2}$$
+Let $M_n=X_n/(n+2)$ be the fraction of red balls after $n$ draws.  Then $M_n$ is a martingale.  To see this, note that 
+$$E(X_{n+1}\;|\;X_n) = X_n + \frac{X_n}{n+2}.$$
+Since this is a Markov chain, all the relevant information in $\mathfrak{F}_n$ for determining $X_{n+1}$ is contained in $X_n$. Therefore, 
+$$E(M_{n+1} \;|\; \mathfrak{F}_n) = E((n+3)^{-1}X_{n+1}\;|\;X_n)$$
+$$= \frac{1}{n+3} \left[ X_n + \frac{X_n}{n+2} \right]$$
+$$= \frac{X_n}{n+2}=M_n.$$
+[(Lawler, Gregory F., 2006. "Introduction to Stochastic Processes.")](https://www.amazon.com/Introduction-Stochastic-Processes-Chapman-Probability/dp/158488651X)
+
+## Simulation
+We consider the Polya Urn model, implementing the urn as a Python object.  The code for this can be found on my [GitHub](https://github.com/michaelbigelow/StochasticProcesses) for any interested readers.
+
+```{python}
+import numpy as np
+from numpy import random
+
+
+class Urn:
+    def __init__(self, red=1, green=1):
+        self.red = red
+        self.green = green
+
+    def draw(self):
+        balls = self.red + self.green
+        prob_dist = [self.red / balls, self.green / balls]
+        result = random.choice(["red", "green"], p=prob_dist)
+        return result
+
+    def update(self):
+        draw = self.draw()
+        if draw == "red":
+            self.red += 1
+        elif draw == "green":
+            self.green += 1
+```
+
+We simulate the model starting with one red and one green ball and continue until the number of balls in the urn is 1000, noting the fraction of red balls in the 1000 total balls.    
+
+```{python}
+def polyas_urn(num_draws1=998, num_draws2=0, num_trials=100):
+    """
+    Function for running experiments on the Polya Urn model
+    """
+    trials1 = np.zeros(num_trials)
+    trials2 = np.zeros(num_trials)
+    for j in range(num_trials):
+        urn = Urn()
+        for i in range(num_draws1):
+            urn.update()
+        trials1[j] = urn.red / num_draws1
+        for i in range(num_draws2):
+            urn.update()
+        trials2[j] = urn.red / (num_draws1 + num_draws2)
+    return trials1, trials2
+```
+
+We perform this simulation 2000 times and create a histogram of the proportion of red balls at the end of each simulation.
+
+```{python}
+bin_edges = [np.round(0.05 * i, 2) for i in range(21)]
+trials = polyas_urn(num_trials=2000)[0]
+hist = np.histogram(trials, bin_edges)[0]
+```
+
+```{r}
+py$trials %>% 
+  enframe() %>%
+  ggplot(aes(x=py$trials)) +
+  geom_histogram(binwidth = 0.05, center = 0.025) +
+  labs(title = "Histogram of Proportion of Red Balls")
+```
+
+We see that the proportion of red balls at the end of each simulation appears to be distributed uniformly.
+
+We perform another simulation, again starting with one red and one green ball and continuing until there are 1000 balls in the urn.  We then note the proportion of red balls at this time, then continue the simulation until there are 2000 balls, comparing these two numbers ($M_{998} $ and $ M_{1998}$).  We do this 100 times, reporting the proportion of the time that $M_{998} > M_{1998}$.
+
+```{python}
+trials1, trials2 = polyas_urn(num_draws2=1000, num_trials=100)
+indicators = []
+for i in range(len(trials1)):
+    if trials1[i] > trials2[i]:
+        indicators.append(1)
+    else:
+        indicators.append(0)
+print("Proportion of trials resulting in M_998 > M_1998 =", np.mean(indicators))
+```
+
+In future posts we will examine more Polya's Urn problems, as well as more concepts from stochastic processes.

@@ -12,7 +12,11 @@ tags:
   - mathematics
   - python
 subtitle: ''
+<<<<<<< HEAD
 summary: 'We introduce the Polya Urn model and implement a simulation in Python.'
+=======
+summary: 'We introduce the Polya Urn model and implement a simulation in Python'
+>>>>>>> 5f9461b992c584200e032463dfb64614ac9fe5ad
 authors: [admin]
 lastmod: '2020-05-14T21:12:05-06:00'
 featured: no

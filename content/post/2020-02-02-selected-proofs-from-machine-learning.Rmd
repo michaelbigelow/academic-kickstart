@@ -10,6 +10,7 @@ tags:
   - machine learning
   - proofs
   - VC dimension
+  - statistics
 subtitle: ''
 summary: 'Four key proofs from a graduate course in machine learning.'
 authors: [admin]

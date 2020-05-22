@@ -18,13 +18,12 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: Exploring topics of interest using statistical methods.
+bio: Exploring topics of interest in mathematics, statistics, and computing.
 
 interests:
-- applied mathematics & statistics
-- machine learning
-- population health analytics
-- business intelligence
+- stochastic processes
+- statistical learning theory
+- risk management
 - recommendation systems
 - improvised music
 
@@ -32,10 +31,10 @@ education:
   courses:
   - course: MST in Data Science 
     institution: University of Utah College of Science
-    year: (2020)
+    year: (2021)
   - course: Big Data Certificate 
     institution: University of Utah School of Computing
-    year: (2020)
+    year: (2021)
   - course: MM in Jazz Composition & Performance
     institution: University of Utah School of Music
   - course: BS in Mathematics; physics minor
@@ -49,7 +48,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+  link: 'about/#contact'  # For a direct email link, use "mailto:test@example.org".
 - icon: linkedin
   icon_pack: fab
   link: https://linkedin.com/in/michaelbigelow

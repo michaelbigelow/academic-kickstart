@@ -9,6 +9,8 @@ tags:
   - principal component analysis
   - data mining
   - EDA
+  - statistics
+  - computing
 subtitle: ''
 summary: ''
 authors: [admin]

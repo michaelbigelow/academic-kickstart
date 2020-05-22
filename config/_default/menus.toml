@@ -9,14 +9,19 @@
   weight = 10
 
 [[main]]
-  name = "Posts"
-  url = "#posts"
-  weight = 20
+  name = "Math"
+  url = "math/"
+  weight = 30
 
-# [[main]]
-#   name = "Projects"
-#   url = "#projects"
-#   weight = 30
+[[main]]
+  name = "Statistics"
+  url = "stats/"
+  weight = 40
+
+[[main]]
+  name = "Computing"
+  url = "cs/"
+  weight = 50
 
 # [[main]]
 #   name = "Publications"
@@ -24,13 +29,13 @@
 #   weight = 40
 
 [[main]]
-  name = "Contact"
-  url = "#contact"
+  name = "About"
+  url = "about/"
   weight = 60
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 #[[main]]
 #  name = "Resume"
-#  url = "../files/cv.pdf"
+#  url = "files/cv.pdf/"
 #  weight = 70

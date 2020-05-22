@@ -7,8 +7,8 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 60  # Order that this section will appear.
 
-title = "Recent Posts"
-subtitle = ""
+title = "Computing Posts"
+subtitle = "applying mathematics and statistics with Python and R"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
@@ -25,7 +25,7 @@ subtitle = ""
 
   # Filter posts by a taxonomy term.
   [content.filters]
-    tag = ""
+    tag = "computing"
     category = ""
     publication_type = ""
     exclude_featured = false

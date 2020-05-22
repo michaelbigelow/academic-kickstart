@@ -11,6 +11,7 @@ tags:
   - martingales
   - mathematics
   - python
+  - computing
 subtitle: ''
 summary: 'We introduce the Polya Urn model and implement a simulation in Python.'
 authors: [admin]

@@ -10,6 +10,7 @@ tags:
   - proofs
   - mathematics
   - linear algebra
+  - statistics
 subtitle: ''
 summary: 'Five key proofs from a graduate course in linear models.'
 authors: [admin]

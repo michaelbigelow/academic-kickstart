@@ -8,7 +8,6 @@ weight: 1
 title: Measure and Integration
 date: "2020-05-27T00:00:00Z"
 lastmod: "2020-05-27T00:00:00Z"
-tags: ["mathematics"]
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
 type: docs  # Do not modify.
@@ -20,6 +19,7 @@ menu:
   measure_integration:
     name: Overview
     weight: 1
+    
 ---
 
 In preparation for a graduate course in probability theory, I am preparing scribe notes on measure theory and integration.  The bulk of the below material comes from a pair of excellent measure theory lectures from a quantum theory lecture series by [Dr. Frederic Schuller](https://www.perimeterinstitute.ca/people/frederic-schuller). 

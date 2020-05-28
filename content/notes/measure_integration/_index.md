@@ -8,6 +8,7 @@ weight: 1
 title: Measure and Integration
 date: "2020-05-27T00:00:00Z"
 lastmod: "2020-05-27T00:00:00Z"
+tags: ["mathematics"]
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
 type: docs  # Do not modify.

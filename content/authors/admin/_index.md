@@ -21,7 +21,7 @@ organizations:
 bio: Exploring topics of interest in mathematics, statistics, and computing.
 
 interests:
-- stochastic processes
+- stochastic processes 
 - statistical learning theory
 - risk management
 - recommendation systems
@@ -35,8 +35,6 @@ education:
   - course: Big Data Certificate 
     institution: University of Utah School of Computing
     year: (2021)
-  - course: MM in Jazz Composition & Performance
-    institution: University of Utah School of Music
   - course: BS in Mathematics; physics minor
     institution: University of Utah College of Science
     
@@ -78,5 +76,6 @@ email: ""
 # - Visitors
 ---
 
-With 12 credits remaining for my Master of Science and Technology in data science at the University of Utah, I am becoming skilled in mathematical/statistical modeling, machine learning, and data mining, from theory to implementation using both Python and R.
+In the final year of my Master of Science and Technology in data science at the University of Utah, I am becoming skilled in mathematical/statistical modeling, machine learning, and data mining, from theory to implementation using both Python and R.
+
 In addition to the MST, I am completing the Big Data Certificate through the U of U School of Computing. 

@@ -62,7 +62,7 @@ So the whole raison d'être for a measurable space is that on it I can assign to
 
 The proofs of (3) and (4) are left as an exercise.
 
-**Definition.**  A measure $\mu$ is called *finite* if $\exists \\{A_1, A_2, ...\\} \subseteq \mathfrak{F}$ with $\bigcup_{n \geq 1}A_n = \Omega$ such that $\mu(A_n) < \infty \forall n \in \mathbb{N}$.
+**Definition.**  A measure $\mu$ is called *finite* if $\exists \\{A_1, A_2, ...\\} \subseteq \mathfrak{F}$ with $\bigcup_{n \geq 1}A_n = \Omega$ such that $\mu(A_n) < \infty \\; \forall n \in \mathbb{N}$.
 
 ## Summary
 "So we start with a set ($\Omega$), and we make a selection of sets of subsets which we call measurable, and in order for our theorems to work they must satisfy certain conditions.  

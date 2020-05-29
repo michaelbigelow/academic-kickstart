@@ -22,14 +22,13 @@ The first definition we provide is that of a $\sigma$-algebra, which bears resem
 
 Then a collection of subsets $\mathfrak{F} \subseteq \mathscr{P}(\Omega)$ is called a $\sigma$ *-algebra for* $\Omega$ if
 
-(i) $M \in \mathfrak{F}$
+1. $M \in \mathfrak{F}$
 
-(ii) $A \in \mathfrak{F} \implies \Omega \setminus A \in \mathfrak{F}$
+2. $A \in \mathfrak{F} \implies \Omega \setminus A \in \mathfrak{F}$
 
-(iii) $A_1, A_2, \ldots \in \mathfrak{F} \implies \bigcup_{n \geq 1} A_n \in \mathfrak{F}$
+3. $A_1, A_2, \ldots \in \mathfrak{F} \implies \bigcup_{n \geq 1} A_n \in \mathfrak{F}$
 
-
-We will see what one cand do with a $\sigma$-algebra, and why one needs one, but first, some terminology:
+We will see what one can do with a $\sigma$-algebra, and why one needs one, but first, some terminology:
 
 ## Measurable Sets
 **Terminology.** $A \in \mathfrak{F}$ is called a *measurable set* in $\Omega$. Naively one might think that if we take a subset of $\Omega$, why wouldn't we be able to assign a volume to every subset?  It turns out we cannot do this: only the sets in the $\sigma$-algebra can be assigned a meaningful volume.  The $\sigma$-algebra might as well be termed "the set of measurable subsets."

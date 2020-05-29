@@ -19,7 +19,6 @@ menu:
   measure_integration:
     name: Overview
     weight: 1
-    
 ---
 
 In preparation for a graduate course in probability theory, I am preparing scribe notes on measure theory and integration.  The bulk of the below material comes from a pair of excellent measure theory lectures from a quantum theory lecture series by [Dr. Frederic Schuller](https://www.perimeterinstitute.ca/people/frederic-schuller). 

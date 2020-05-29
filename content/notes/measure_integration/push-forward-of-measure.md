@@ -8,9 +8,9 @@ draft: false
 menu:
   measure_integration:
     parent: Measure
-    weight: 5
+    weight: 50
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 5
+weight: 50
 ---
 *This section of notes summarizes material from 1:24:36 to 1:34:04 of Dr. Frederic Schuller's lecture on measure theory, viewable on [YouTube](https://youtu.be/6ad9V8gvyBQ?t=5078).*

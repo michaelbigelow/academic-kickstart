@@ -8,10 +8,10 @@ draft: false
 menu:
   measure_integration:
     parent: Measure
-    weight: 1
+    weight: 10
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 1
+weight: 10
 ---
 *This section of notes summarizes material from 5:18 to 36:33 of Dr. Frederic Schuller's lecture on measure theory, viewable on [YouTube](https://youtu.be/6ad9V8gvyBQ?t=318).*
 
@@ -60,7 +60,7 @@ So the whole raison d'être for a measurable space is that on it I can assign to
 
 4. Continuity from above: Suppose we have an decreasing enveloping sequence of measurable sets: $A_1 \supseteq A_2 \supseteq \ldots; \bigcap_{n \geq 1} A_n = A$ (note that $\bigcap_{n \geq 1} A_n \in \mathfrak{F}$ due to deMorgan's rule), and $\mu(A_n) < \infty$ for some $n$.  Then we have $lim_{n \to \infty}\mu(A_n) = \mu(A)$.  
 
-The proofs of (3) and (4) are left as an exercise.
+Proof of (3) and (4) are left as an exercise.
 
 **Definition.**  A measure $\mu$ is called *finite* if $\exists \\{A_1, A_2, ...\\} \subseteq \mathfrak{F}$ with $\bigcup_{n \geq 1}A_n = \Omega$ such that $\mu(A_n) < \infty \\; \forall n \in \mathbb{N}$.
 

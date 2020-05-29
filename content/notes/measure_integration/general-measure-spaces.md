@@ -22,7 +22,7 @@ The first definition we provide is that of a $\sigma$-algebra, which bears resem
 
 Then a collection of subsets $\mathfrak{F} \subseteq \mathscr{P}(\Omega)$ is called a $\sigma$ *-algebra for* $\Omega$ if
 
-1. $M \in \mathfrak{F}$
+1. $\Omega \in \mathfrak{F}$
 
 2. $A \in \mathfrak{F} \implies \Omega \setminus A \in \mathfrak{F}$
 

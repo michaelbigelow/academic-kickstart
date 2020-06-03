@@ -1,13 +1,13 @@
 ---
 title: Borel Sigma-Algebras
-linktitle: 2. Borel Sigma-Algebras
+linktitle: Borel Sigma-Algebras
 toc: true
 type: docs
 date: "2020-05-27T00:00:00Z"
 draft: false
 menu:
-  measure_integration:
-    parent: Measure
+  docs:
+    parent: measure
     weight: 20
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)

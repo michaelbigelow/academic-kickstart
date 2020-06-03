@@ -1,13 +1,13 @@
 ---
 title: Sets of Measure Zero
-linktitle: 5. Sets of Measure Zero
+linktitle: Sets of Measure Zero
 toc: true
 type: docs
 date: "2020-05-27T00:00:00Z"
 draft: false
 menu:
-  measure_integration:
-    parent: Measure
+  docs:
+    parent: measure
     weight: 60
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)

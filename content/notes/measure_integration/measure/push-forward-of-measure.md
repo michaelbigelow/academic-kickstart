@@ -1,13 +1,13 @@
 ---
 title: Push-Forward of a Measure
-linktitle: 5. Push-Forward of a Measure
+linktitle: Push-Forward of a Measure
 toc: true
 type: docs
 date: "2020-05-27T00:00:00Z"
 draft: false
 menu:
-  measure_integration:
-    parent: Measure
+  docs:
+    parent: measure
     weight: 50
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)

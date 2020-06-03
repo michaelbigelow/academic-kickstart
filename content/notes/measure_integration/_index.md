@@ -1,6 +1,6 @@
 ---
 # Course title, summary, and position.
-linktitle: Measure Theory Scribe Notes
+linktitle: 
 summary: These are scribe notes I have prepared from Professor Frederic Schuller's lectures on measure and integration.
 weight: 1
 
@@ -16,9 +16,11 @@ type: docs  # Do not modify.
 # - name: Declare this menu item as a parent with ID `name`.
 # - weight: Position of link in menu.
 menu:
-  measure_integration:
-    name: Introduction
+  docs:
+    parent: Introduction
     weight: 5
+    
+weight: 5
 ---
 
 The following notes are based on two excellent lectures by Dr. Frederic Schuller, augmented where appropriate.  I hope my notes help the material of the lectures linger for you as they have for me.  [Click here for the notes!](https://michaelbigelow.com/notes/measure_integration/general-measure-spaces/)

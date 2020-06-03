@@ -1,13 +1,13 @@
 ---
 title: Measurable Maps
-linktitle: 4. Measurable Maps
+linktitle: Measurable Maps
 toc: true
 type: docs
 date: "2020-05-27T00:00:00Z"
 draft: false
 menu:
-  measure_integration:
-    parent: Measure
+  docs:
+    parent: measure
     weight: 40
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)

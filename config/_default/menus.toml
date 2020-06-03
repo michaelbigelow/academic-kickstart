@@ -40,3 +40,20 @@
 #  name = "Resume"
 #  url = "files/cv.pdf/"
 #  weight = 70
+
+# Documentation
+
+[[docs]]
+  name = "Introduction"
+  weight = 10
+  url = "/notes/measure_integration"
+
+[[docs]]
+  name = "Measure"
+  weight = 20
+  identifier = "measure"
+
+[[docs]]
+  name = "Integration"
+  weight = 30
+  identifier = "integration"

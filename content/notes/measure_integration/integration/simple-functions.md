@@ -16,7 +16,7 @@ weight: 70
 *This section of notes summarizes material from 0:00 to 10:53 of Dr. Frederic Schuller's lecture on integration of measurable functions, viewable on [YouTube](https://youtu.be/ot253Lhx2_o).*
 
 ## Introduction
-The key definition of this section is that of the *Lebesgue integral*.  Previously we have developed the Lebesgue measure on $\mathbb{R}^d$.  Now the Lebesgue integral is not necessarily to be performed with the Lebesgue measure, though it can be.  The key application from the point of view of the physicist will be to define the $L^p$-spaces, which are the spaces of functions whose p-th power of their absolute value is integrable.  There are certain other conditions that must be entertained to make these into proper *Banach spaces*, or in the case $p=2$, a *Hilbert space*, approximately the space of square-integrable functions, seen everywhere in quantum mechanics.
+The key definition of the next sections is that of the *Lebesgue integral*.  Previously we have developed the Lebesgue measure on $\mathbb{R}^d$.  Now the Lebesgue integral is not necessarily to be performed with the Lebesgue measure, though it can be.  The key application from the point of view of the physicist will be to define the $L^p$-spaces, which are the spaces of functions whose p-th power of their absolute value is integrable.  There are certain other conditions that must be entertained to make these into proper *Banach spaces*, or in the case $p=2$, a *Hilbert space*, approximately the space of square-integrable functions, seen everywhere in quantum mechanics.
 
 ## Simple Functions
 As a technical tool, we introduce the following:

@@ -23,7 +23,7 @@ image:
 projects: []
 ---
 
-[Click here to go to the notes.](/notes/measure_integration/general-measure-spaces/)
+[Click here to go to the notes.](/notes/measure_integration/measure/general-measure-spaces/)
 
 ## About the Notes
 In preparation for a graduate course in probability theory, I have been preparing [scribe notes](/notes/measure_integration/general-measure-spaces/) on measure theory and integration.  The arc of the notes follows a pair of excellent measure theory lectures from a quantum theory lecture series by [Dr. Frederic Schuller](https://www.perimeterinstitute.ca/people/frederic-schuller). 
@@ -47,4 +47,4 @@ These notes are intended to accompany a student who, like me, has enjoyed Dr. Sc
 
 "...so there is no way in quantum mechanics to avoid the Lebesgue integral, everything else is child's play.  We are going to develop that integral, and what follows is the preparation for that."
 
-[Click here to go to the notes.](/notes/measure_integration/general-measure-spaces/)
+[Click here to go to the notes.](/notes/measure_integration/measure/general-measure-spaces/)

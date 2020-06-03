@@ -23,7 +23,7 @@ menu:
 weight: 5
 ---
 
-The following notes are based on two excellent lectures by Dr. Frederic Schuller, augmented where appropriate.  I hope my notes help the material of the lectures linger for you as they have for me.  [Click here for the notes!](https://michaelbigelow.com/notes/measure_integration/general-measure-spaces/)
+The following notes are based on two excellent lectures by Dr. Frederic Schuller, augmented where appropriate.  I hope my notes help the material of the lectures linger for you as they have for me.  [Click here for the notes!](/notes/measure_integration/measure/general-measure-spaces/)
 
 
 {{< youtube 6ad9V8gvyBQ >}}

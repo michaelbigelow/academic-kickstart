@@ -16,4 +16,4 @@ weight: 100
 
 **_coming soon_**
 
-*This section of notes summarizes material from * to * of Dr. Frederic Schuller's lecture on integration of measurable functions, viewable on [YouTube](https://youtu.be/ot253Lhx2_o).*
+*This section of notes summarizes material from up to  of Dr. Frederic Schuller's lecture on integration of measurable functions, viewable on [YouTube](https://youtu.be/ot253Lhx2_o).*

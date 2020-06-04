@@ -1,6 +1,6 @@
 ---
 title: Integration for Non-negative Measurable Functions
-linktitle: Integration for Non-negative Measurable Functions
+linktitle: Non-negative Measurable Functions
 toc: true
 type: docs
 date: "2020-05-27T00:00:00Z"
@@ -20,7 +20,7 @@ One might think that we immediately begin integrating simple functions, but in f
 
 ## Non-negative Measurable Functions
 **Definition.** By a non-negative measurable function, we mean $f: \Omega \to \bar{\mathbb{R}}$ such that 
-1. $f(m) \geq 0$ for all $m \in \Omega$  
+1. $f(\omega) \geq 0$ for all $\omega \in \Omega$  
 2. $f$ is measurable.
 
 Once again, "measurable" implies the selection of a $\sigma$-algebra on both $\Omega$ and $\bar{\mathbb{R}}$.  For $\Omega$ let the $\sigma$-algebra be $\mathfrak{F}$; for $\bar{\mathbb{R}}$ we may not take the Borel $\sigma$-algebra $\mathfrak{B}_{\mathbb{R}}$ because the target is no longer $\mathbb{R}$, but $\bar{\mathbb{R}}$ -- the extended real numbers (this choice permits us to leave the domain untouched, which will serve us here better).  We instead equip $\bar{\mathbb{R}}$ with a $\sigma$-algebra 
@@ -40,9 +40,9 @@ for all simple functions $s$.
 
 **Definition.** Let $A \in \mathfrak{F}$; i.e., a measurable subset $A \subseteq \Omega$, then we define 
 
-$$\int_A f \\; d\mu := \int f \cdot \chi_A d\mu$$
+$$\int_A f \\; d\mu := \int f \cdot \mathbf{1}_A d\mu$$
 
-where $(f \cdot \chi_A)(m):=f(m)\cdot \chi_A(m)$.
+where $(f \cdot \mathbf{1}_A)(\omega):=f(\omega)\cdot \mathbf{1}_A(\omega)$.
 
 **Notation.** It is often *very* convenient to write the function values, i.e. $\int f(x) \\; \mu(dx)$, instead of $\int f \\; d\mu$, the function itself.
 
@@ -65,3 +65,14 @@ The pivotal theorem of Lebesgue integration theory is the Theorem on Monotone Co
 **Theorem.** Let $ 0 \leq f_1 \leq f_2 \leq \ldots$ be a sequence of measurable functions $ f_n: \Omega \to \bar{\mathbb{R}}$.  Provided $f:= \sup_{n\geq 1} f_n$ pointwise, then 
 $$\lim_{n \to \infty} \int f_n \\; d\mu = \int f \\; d\mu.$$
 The idea is that you can exchange the limit and the integration.  This is unheard-of in Riemann integration: it is simply not true. This theorem is thus a consequence of having defined the Lebesgue integral.  
+
+## Additional Results
+Before we continue, let us collect two results:
+
+**Theorem.** Let $ f, g \leq 0$ be measurable.  Let $\alpha \in \mathbb{R}^+_0$.  Then 
+$$\int (f+\alpha g) \\; d\mu = \int f \\; d\mu + \alpha \int g \\; d\mu.$$
+
+**Theorem.** For any sequence $f_n: \Omega \to \bar{\mathbb{R}}^+_0$ (measurable) we have 
+$$\int \left( \sum_{n=1}^{\infty} f_n \right) d\mu = \sum_{n=1}^{\infty} \int f_n \\; d\mu .$$
+
+This is simply not true with the Riemann integral.  You can imagine how useful this result will be on an infinite-dimensional Hilbert space.  Any non-negative measurable function can be given a value in $\bar{\mathbb{R}}^+_0$ with this definition of integral; all that remains is to get rid of the non-negativity condition we have imposed.

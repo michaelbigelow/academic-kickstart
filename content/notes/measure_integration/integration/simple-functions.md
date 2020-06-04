@@ -29,11 +29,11 @@ In the domain, the function takes only finitely many different values, so this t
 
 **Implication.** $s^{-1}(\\{s_i\\}) \in \mathfrak{F}$, as of course $s_i \in \mathfrak{B}_{\mathbb{R}}$.
 
-**Implication.** $s = \sum_{z \in s(\Omega)} z \cdot \chi_{s^{-1}(\\{s_i\\})}$ where for any $A \subseteq \Omega$ we define $\chi_A : \Omega \to \mathbb{R}$ as 
-$$\chi_{A}(m):= 
+**Implication.** $s = \sum_{z \in s(\Omega)} z \cdot \mathbf{1}_{s^{-1}(\\{s_i\\})}$ where for any $A \subseteq \Omega$ we define $\mathbf{1}_A : \Omega \to \mathbb{R}$ as 
+$$\mathbf{1}_{A}(\omega):= 
 \begin{cases}
-1 & m \in A \\\\
-0 & m \notin A .
+1 & \omega \in A \\\\
+0 & \omega \notin A .
   \end{cases}$$
 
 Note that the above sum is not a series: it is finite.

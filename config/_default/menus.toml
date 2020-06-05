@@ -57,3 +57,8 @@
   name = "Integration"
   weight = 30
   identifier = "integration"
+
+[[docs]]
+  name = "Exercises"
+  weight = 40
+  identifier = "exercises"

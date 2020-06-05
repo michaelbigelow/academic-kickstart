@@ -1,0 +1,138 @@
+---
+title: 'Measure Theory'
+author: "Michael Bigelow"
+date: '2020-06-03'
+output: pdf_document
+draft: no
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+lastmod: '2020-06-03T16:20:05-06:00'
+categories: [Probability]
+projects: []
+slug: probability-preliminaries-i-measure-theory
+subtitle: ''
+summary: 'Key proofs from measure theory, in preparation for a course in rigorous probability theory.'
+type: docs
+tags:
+- measure theory
+- probability
+- proofs
+- mathematics
+authors: [admin]
+menu:
+  docs:
+    parent: exercises
+    weight: 200
+weight: 200
+---
+
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Below are my solutions to measure theory exercises from Professor Davar Khoshnevisan’s <a href="http://www.math.utah.edu/~davar/lecture-notes.html">lecture notes</a> on probability theory. Nearly all of the exercises illustrate or prove key results that were left omitted from my <a href="/notes/measure_integration">measure theory scribe notes</a>, which are themselves based on Professor Frederic Schuller’s illuminating lectures on <a href="https://www.youtube.com/watch?v=6ad9V8gvyBQ">measure</a> and <a href="https://www.youtube.com/watch?v=ot253Lhx2_o">integration</a>, given during a series on quantum theory.</p>
+<div id="exercise-1.1" class="section level2">
+<h2>Exercise 1.1</h2>
+<p>Prove the following lemma:</p>
+<p><strong>Lemma.</strong> If <span class="math inline">\(I\)</span> is any set (denumerable or not) and if <span class="math inline">\(\mathfrak{F}_i\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(\Omega\)</span> for each <span class="math inline">\(i \in I\)</span>, then <span class="math inline">\(\cap_{i \in I} \mathfrak{F}_i\)</span> is also such a <span class="math inline">\(\sigma\)</span>-algebra. Consequently, given any algebra <span class="math inline">\(\mathfrak{A}\)</span>, there exists a smallest <span class="math inline">\(\sigma\)</span>-algebra containing <span class="math inline">\(\mathfrak{A}\)</span>.</p>
+<p><strong>Proof.</strong></p>
+<p><a href="/notes/measure_integration/measure/general-measure-spaces/#sigma-algebras">Recall</a> that a collection <span class="math inline">\(\mathfrak{F}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra if:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(\Omega \in \mathfrak{F}\)</span></li>
+<li><span class="math inline">\(A \in \mathfrak{F} \implies A^c \in \mathfrak{F}\)</span> and</li>
+<li><span class="math inline">\(A_1, A_2, ... \in \mathfrak{F} \implies \cup_{n=1}^{\infty}A_n \in \mathfrak{F}\)</span>.</li>
+</ol>
+<p>Hence, from the definition of intersection, <span class="math inline">\(\cap_{i \in I}\mathfrak{F}_i\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra because:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(\Omega \in \mathfrak{F}_i \forall i\in I \implies \Omega \in \cap_{i \in I}\mathfrak{F}_i\)</span></li>
+<li><span class="math inline">\(A \in \cap_{i \in I}\mathfrak{F}_i \implies A \in \mathfrak{F}_i \forall i\in I \implies A^c \in \mathfrak{F}_i \forall i\in I \implies A^c \in \cap_{i \in I}\mathfrak{F}_i\)</span></li>
+<li><span class="math inline">\(A_1, A_2, ... \in \cap_{i \in I}\mathfrak{F}_i \implies A_1, A_2, ... \in \mathfrak{F}_i \forall i\in I \implies \cup_{n=1}^{\infty}A_n \in \mathfrak{F}_i \forall i\in I \implies \cup_{n=1}^{\infty}A_n \in \cap_{i \in I}\mathfrak{F}_i\)</span> <span class="math inline">\(\square\)</span></li>
+</ol>
+</div>
+<div id="exercise-1.2" class="section level2">
+<h2>Exercise 1.2</h2>
+<p>Prove the following lemma:</p>
+<p><strong>Lemma.</strong> If <span class="math inline">\((\Omega, \mathfrak{F}, \mu)\)</span> is a measure space, then:</p>
+<ol style="list-style-type: lower-roman">
+<li>(Continuity from below) If <span class="math inline">\(A_1 \subseteq A_2 \subseteq \ldots\)</span> are all measurable, then <span class="math inline">\(\lim_{n \to \infty} \mu(A_n) = \mu(\bigcup_{m=1}^\infty A_m)\)</span>.</li>
+<li>(Continuity from above) If <span class="math inline">\(A_1 \supseteq A_2 \supseteq \ldots\)</span> are all measurable, and if <span class="math inline">\(\mu(A_n)&lt;+\infty\)</span> for some <span class="math inline">\(n\)</span>, then <span class="math inline">\(\lim_{n \to \infty} \mu(A_n) = \mu(\bigcap_{m=1}^\infty A_m)\)</span>.</li>
+</ol>
+<p><strong>Proof.</strong></p>
+<p>To show (i), let <span class="math inline">\(A_m = A_n \setminus A_{n-1}\)</span> so that the <span class="math inline">\(A_m\)</span> are disjoint (and we have <span class="math inline">\(A_n = \bigcup_{m=1}^n A_m\)</span>). By the countable additivity of measures we have
+<span class="math display">\[\mu\left(\bigcup_{m=1}^\infty A_m\right) = \sum_{m=1}^\infty \mu(A_m)\]</span>
+<span class="math display">\[= \lim_{n \to \infty} \sum_{m=1}^n \mu(A_m)\]</span>
+but from the above construction of the disjoint sets <span class="math inline">\(A_m\)</span> and finite additivity of measures we know that <span class="math inline">\(\mu(A_n) = \sum_{m=1}^n \mu(A_m)\)</span> so we have
+<span class="math display">\[= \lim_{n \to \infty}\mu(A_n).\]</span></p>
+<p>On the other hand to show (ii), WLOG let <span class="math inline">\(\mu(A_1)&lt;+\infty\)</span>. Let <span class="math inline">\(A = \bigcap_{m=1}^\infty A_m\)</span> and <span class="math inline">\(A_k = A_n \setminus A_{n+1}\)</span> so that the <span class="math inline">\(A_k\)</span> are disjoint, and also any <span class="math inline">\(A_k\)</span> and <span class="math inline">\(A\)</span> are disjoint because
+<span class="math display">\[x \in A \implies x \in A_n \forall n \implies x \notin A_k(:= A_n \setminus A_{n+1}).\]</span></p>
+<p>Then we have
+<span class="math display">\[A_1 = A \cup \bigcup_{k=1}^\infty A_k.\]</span></p>
+<p>By countable additivity we have</p>
+<p><span class="math display">\[\mu(A_1) = \mu(A) + \sum_{k=1}^\infty \mu(A_k)\]</span>
+<span class="math display">\[= \mu(A) + \lim_{n \to\infty}\sum_{k=1}^n \mu(A_k)\]</span>
+but from the construction of <span class="math inline">\(A_k\)</span> and finite additivity of measures we know that <span class="math inline">\(\mu(A_k) = \mu(A_n) - \mu(A_{n+1})\)</span> so after cancellation of terms in the sum, we have
+<span class="math display">\[= \mu(A) + \lim_{n \to\infty} \left(\mu(A_1) - \mu(A_{n+1}) \right).\]</span>
+Hence,
+<span class="math display">\[\mu(A_1) = \mu(A) + \mu(A_1) - \lim_{n \to \infty} \mu(A_n)\]</span>
+or equivalently,
+<span class="math display">\[\lim_{n \to \infty} \mu(A_n) = \mu(A) = \mu\left(\bigcap_{m=1}^\infty A_m\right)\]</span>
+which is the desired result. <span class="math inline">\(\square\)</span></p>
+</div>
+<div id="exercise-1.3" class="section level2">
+<h2>Exercise 1.3</h2>
+<p>Prove the following lemma:</p>
+<p><strong>Lemma.</strong> Suppose <span class="math inline">\(\Omega=\{\omega_1, \ldots , \omega_n \}\)</span> is a finite set. Then we can find <span class="math inline">\(p_1, \ldots, p_n \in [0,1]\)</span> such that:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(p_1 + \ldots + p_n = 1\)</span> and</li>
+<li>for all <span class="math inline">\(A \subseteq \Omega\)</span>, <span class="math inline">\(P(A) = \sum_{i:w_i \in A} p_i\)</span>.</li>
+</ol>
+<p>Conversely, any sequence <span class="math inline">\(p_1, \ldots, p_n \in [0,1]\)</span> that has the property (a) above defines a probability measure <span class="math inline">\(P\)</span> on the power set of <span class="math inline">\(\Omega\)</span> via the assignment <span class="math inline">\(P(\{\omega_i\}):=p_i(i=1, \ldots, n).\)</span></p>
+<p><strong>Proof.</strong></p>
+<p>We will always be able to find at least one such set <span class="math inline">\(\{p_i:i= 1, \ldots,n\}\)</span> satisfying (a), for example by defining <span class="math inline">\(p_i=\frac{1}{n}\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span> so we have <span class="math inline">\(\sum_{i=1}^n \frac{1}{n}=1\)</span>. Then <span class="math inline">\(P(\emptyset) = 0, P(\Omega)=1\)</span> and we have <span class="math inline">\(P(A)=\sum_{i:\omega \in A}p_i\)</span> for any set <span class="math inline">\(A \subseteq \Omega\)</span>. <span class="math inline">\(\square\)</span></p>
+</div>
+<div id="exercise-1.4" class="section level2">
+<h2>Exercise 1.4</h2>
+<p>Prove the following lemma:</p>
+<p><strong>Lemma.</strong> An arbitrary intersection of monotone classes is a monotone class. In particular, there exists a smallest monotone class containing <span class="math inline">\(\mathfrak{A}\)</span>.</p>
+<p><strong>Proof.</strong></p>
+<p>Recall that a class <span class="math inline">\(\mathscr{M}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is called a <em>monotone class</em> if it is closed under countable increasing unions and countable decreasing intersections:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A_1, A_2, \ldots \in \mathscr{M}\)</span> and <span class="math inline">\(A_n \nearrow A \implies A \in \mathscr{M}\)</span></li>
+<li><span class="math inline">\(B_1, B_2, \ldots \in \mathscr{M}\)</span> and <span class="math inline">\(B_m \searrow B \implies B \in \mathscr{M}\)</span></li>
+</ol>
+<p>Let <span class="math inline">\(\mathscr{M}_i\)</span> be monotone classes for all <span class="math inline">\(i \in I\)</span> for some possibly uncountable index set <span class="math inline">\(I\)</span>. Consider the set <span class="math inline">\(\mathscr{M} = \bigcap_{i \in I} \mathscr{M}_i\)</span>. Suppose <span class="math inline">\(A_n, B_m \in \mathscr{M}\)</span> for all <span class="math inline">\(n, m \in \mathbb{N}\)</span>.</p>
+<p>First we will show that <span class="math inline">\(\mathscr{M}\)</span> satisfies (1); i.e., that <span class="math inline">\(A = \bigcup_n A_n \in \mathscr{M}\)</span>. By the construction of <span class="math inline">\(\mathscr{M}\)</span> and the definition of intersection, we know that <span class="math inline">\(A_n \in \mathscr{M_i}\)</span> for all <span class="math inline">\(i \in I, n \in \mathbb{N}\)</span>. Since each <span class="math inline">\(\mathscr{M}_i\)</span> is a monotone class and is therefore closed under countable increasing unions, we have <span class="math inline">\(A_n \nearrow A \implies A \in \mathscr{M}_i\)</span> for all <span class="math inline">\(i \in I\)</span>. Hence by the definition of intersection, <span class="math inline">\(A \in \mathscr{M}\)</span>.</p>
+<p>Next we will show by a similar argument that <span class="math inline">\(\mathscr{M}\)</span> satisfies (2); i.e., that <span class="math inline">\(B = \bigcap_m B_m \in \mathscr{M}\)</span>. By the definition of intersection, we know that <span class="math inline">\(B_m \in \mathscr{M_i}\)</span> for all <span class="math inline">\(i \in I, m \in \mathbb{N}\)</span>. Since each <span class="math inline">\(\mathscr{M}_i\)</span> is closed under countable decreasing intersections, <span class="math inline">\(B_m \searrow B \implies B \in \mathscr{M}_i\)</span> for all <span class="math inline">\(i \in I\)</span>. Hence by the definition of intersection, <span class="math inline">\(B \in \mathscr{M}\)</span>.</p>
+<p>We conclude that <span class="math inline">\(\mathscr{M}\)</span> is a monotone class. <span class="math inline">\(\square\)</span></p>
+</div>
+<div id="exercise-1.5" class="section level2">
+<h2>Exercise 1.5</h2>
+<p>Prove that Lebesgue measure is translation invariant; i.e., the measure of <span class="math inline">\(x+A\)</span> is the same as the measure of <span class="math inline">\(A\)</span> provided <span class="math inline">\(x+A\)</span> and <span class="math inline">\(A\)</span> are <span class="math inline">\(\mathfrak{B}_{\mathbb{R}}\)</span>-measurable. Here, <span class="math inline">\(x+A := \{x+y \; \vert \; y \in A\}\)</span>.</p>
+<p>Furthermore, if <span class="math inline">\(m_{\alpha}\)</span> denotes the Lebesgue measure on <span class="math inline">\(([0,\alpha], \mathfrak{B}([0, \alpha]))\)</span> for a given <span class="math inline">\(\alpha &gt; 0\)</span>, prove that for all measurable <span class="math inline">\(A \subseteq [0, \alpha], \alpha^{-1}A\)</span> is in <span class="math inline">\(\mathfrak{B}([0,1])\)</span> and <span class="math inline">\(m_{\alpha}(A) = \alpha m_1 (\alpha^{-1}A)\)</span>. In other words, prove that Lebesgue measure is scale-invariant.</p>
+<p><strong>Proof.</strong></p>
+</div>
+<div id="exercise-1.6" class="section level2">
+<h2>Exercise 1.6</h2>
+<p>Suppose <span class="math inline">\((\Omega, \mathfrak{F}, \mu)\)</span> is a measure space. Let <span class="math inline">\(\Omega&#39;\)</span> be as set, and let <span class="math inline">\(\mathfrak{F}&#39;\)</span> denote a <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(\Omega&#39;\)</span>. If <span class="math inline">\(f: \Omega \to \Omega&#39;\)</span> is measurable, show that <span class="math inline">\(\mu \circ f^{-1}(A)\)</span> is a measure on <span class="math inline">\((\Omega&#39;, \mathfrak{F}&#39;)\)</span>, where
+<span class="math display">\[\mu \circ f^{-1}(A) := \mu(\{\omega \in \Omega \; \vert \; f(\omega) \in A \})\]</span></p>
+<p><strong>Proof.</strong></p>
+<p><a href="/notes/measure_integration/measure/general-measure-spaces/#measures">Recall</a> that a <em>measure</em> <span class="math inline">\(\mu : \mathfrak{F} \to \bar{\mathbb{R}}_0^+\)</span> (where <span class="math inline">\(\bar{\mathbb{R}} = \mathbb{R} \cup \{ -\infty, + \infty \}\)</span>) on a measurable space <span class="math inline">\((M, \mathfrak{F})\)</span> is a map satisfying:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mu(\emptyset) = 0\)</span></p></li>
+<li><p>For pairwise disjoint <span class="math inline">\(A_1, A_2, \ldots \in \mathfrak{F};\)</span> <span class="math inline">\(\forall i \neq j, A_i \cap A_j = \emptyset\)</span> we have <span class="math inline">\(\mu(\bigcup_{n\geq1}A_n)=\sum_{n \geq 1} \mu(A_n)\)</span>.</p></li>
+</ol>
+<p><a href="/notes/measure_integration/measure/measurable-maps/#measurable-maps">Recall further</a> that a map <span class="math inline">\(f: \Omega \to \Omega&#39;\)</span> is called <em>measurable</em> with respect to <span class="math inline">\(\mathfrak{F}, \mathfrak{F}&#39;\)</span> if for all <span class="math inline">\(A \in \mathfrak{F}&#39;\)</span> we have <span class="math inline">\(f^{-1}(A) \in \mathfrak{F}\)</span> (where <span class="math inline">\(f^{-1}\)</span> denotes the preimage of <span class="math inline">\(f\)</span>).</p>
+<p>First, to show that <span class="math inline">\(\mu \circ f^{-1}(A)\)</span> satisfies (1), let <span class="math inline">\(A= \emptyset\)</span>. Then by the measurability of <span class="math inline">\(f\)</span>, clearly <span class="math inline">\(f^{-1}(A) \in \mathfrak{F}\)</span> and since <span class="math inline">\(\mu\)</span> is a measure on <span class="math inline">\(\mathfrak{F}\)</span>, it satisfies <span class="math inline">\(\mu(\emptyset) = 0\)</span>, and hence
+<span class="math display">\[\mu \circ f^{-1}(A) = \mu(f^{-1}(A)) = \mu(\emptyset) = 0.\]</span></p>
+<p>Now, to show that <span class="math inline">\(\mu \circ f^{-1}(A)\)</span> satisfies (2) (<span class="math inline">\(\sigma\)</span>-additivity), we note that for a countable family of disjoint sets <span class="math inline">\(A_1, A_2, \ldots \in \mathfrak{F}&#39;\)</span>, we have (by the definition of measurable <span class="math inline">\(f\)</span>) that <span class="math inline">\(f^{-1}(A_1), f^{-1}(A_2), \ldots \in \mathfrak{F}\)</span>, and since <span class="math inline">\(\mu\)</span> is a measure on <span class="math inline">\(\mathfrak{F}\)</span>, we have
+<span class="math display">\[\begin{aligned}\mu \circ f^{-1}(\bigcup_{k \in \mathbb{N}} A_k) &amp;= \mu(f^{-1}(\bigcup_{k \in \mathbb{N}} A_k)) \\
+&amp;= \mu(\bigcup_{k \in \mathbb{N}}f^{-1}( A_k)) \end{aligned}\]</span>
+and hence by the <span class="math inline">\(\sigma\)</span>-additivity of <span class="math inline">\(\mu\)</span>,
+<span class="math display">\[= \sum_{k \in \mathbb{N}} \mu(f^{-1}( A_k))\]</span>
+<span class="math display">\[= \sum_{k \in \mathbb{N}} \mu \circ f^{-1}(A_k)\]</span>
+which is the desired result. Hence we have proved that <span class="math inline">\(\mu \circ f^{-1}(A)\)</span> is a measure on <span class="math inline">\((\Omega&#39;, \mathfrak{F}&#39;)\)</span>. <span class="math inline">\(\square\)</span></p>
+</div>
+</div>

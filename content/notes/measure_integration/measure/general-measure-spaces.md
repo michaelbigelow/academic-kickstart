@@ -60,7 +60,7 @@ So the whole raison d'être for a measurable space is that on it I can assign to
 
 4. Continuity from above: Suppose we have an decreasing enveloping sequence of measurable sets: $A_1 \supseteq A_2 \supseteq \ldots; \bigcap_{n \geq 1} A_n = A$ (note that $\bigcap_{n \geq 1} A_n \in \mathfrak{F}$ due to deMorgan's rule), and $\mu(A_n) < \infty$ for some $n$.  Then we have $lim_{n \to \infty}\mu(A_n) = \mu(A)$.  
 
-Proof of (3) and (4) are [left as an exercise](/notes/measure_integration/exercises/measure-theory-exercises/#2-continuity-of-measures/).
+Proof of (3) and (4) are [left as an exercise](/notes/measure_integration/exercises/measure-theory-exercises/#2-continuity-of-measures).
 
 **Definition.**  A measure $\mu$ is called *finite* if there exists a sequence $\\{A_1, A_2, ...\\} \subseteq \mathfrak{F}$ with $\bigcup_{n \geq 1}A_n = \Omega$ such that $\mu(A_n) < \infty$ for all $n \in \mathbb{N}$.
 

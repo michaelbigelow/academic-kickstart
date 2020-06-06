@@ -32,7 +32,7 @@ To define the integral of a general function, we must reduce it to the integrals
 **Definition.** The *integral* $\int f \\; d\mu$ of an integrable function $f$ is defined as: 
 $$\int f \\; d\mu := \int f^+ \\; d\mu - \int f^- \\; d\mu$$
 
-**Remark.** In quantum mechanics, we need to deal with functions $f: \Omega \to \mathbb{C}$.  Their integration theory follows immediately by treating $\Re(f)$ and $\Im(f)$ separately:
+**Remark.** In quantum mechanics, we need to deal with functions $f: \Omega \to \mathbb{C}$.  Their integration theory follows immediately by treating the real and imaginary parts of $f$, $\Re(f)$ and $\Im(f)$ separately:
 $$\int f \\; d\mu := \int \Re(f) \\; d\mu + i \int \Im(f) \\; d\mu.$$
 
 ## Properties

@@ -19,9 +19,9 @@ weight: 50
 Say one has a space equipped with a structure, and another space with not quite as much structure, you may be able to "inherit" the structure from the one space to the other space.  Below is one way to inherit a measure by "carrying" the measure on the domain to the target. It is quite a natural way to inherit a measure, though by far not the only one.
 
 ## Push-Forward of a Measure
-**Definition.** Let $(\Omega, \mathfrak{F}, \mu)$ be a measure space and $(N, \mathfrak{G})$ be a measurable space.  Further, let $f: \Omega \to N$ be a measurable map.  Then the so-called *push-forward* $f^*\mu: \mathfrak{G} \to \bar{\mathbb{R}}^+_0$ is a measure on $(N, \mathfrak{G})$ and is defined by $(f^*\mu)(A) := (\mu \circ f^{-1})(A))$ for a set $A \in N$.
+**Definition.** Let $(\Omega, \mathfrak{F}, \mu)$ be a measure space and $(N, \mathfrak{G})$ be a measurable space.  Further, let $f: \Omega \to N$ be a measurable map.  Then the so-called *push-forward* $f_*\mu: \mathfrak{G} \to \bar{\mathbb{R}}^+_0$ is a measure on $(N, \mathfrak{G})$ and is defined by $(f_*\mu)(A) := (\mu \circ f^{-1})(A))$ for a set $A \in N$.
 
-**Proof.** (left as an exercise)
+**Proof.** [(left as an exercise)](/measure_integration/exercises/measure-theory-exercises/#6-push-forward-measure-is-a-measure/)
 
 
 

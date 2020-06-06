@@ -16,7 +16,9 @@ weight: 80
 *This section of notes summarizes material from 10:53 to 49:04 of Dr. Frederic Schuller's lecture on integration of measurable functions, viewable on [YouTube](https://youtu.be/ot253Lhx2_o?t=653).*
 
 ## Introduction
-One might think that we immediately begin integrating simple functions, but in fact we start much more generally by defining integration for non-negative measurable functions.  Ultimately there is a small extra condition beyond measurability that is needed for integrability; however, at this point we make still another restriction, and that is that the functions in question be non-negative.  In the next section we shall extend this to any measurable function satisfying the extra condition to which we allude above.
+One might think that we immediately begin integrating simple functions, but in fact we start much more generally by defining integration for non-negative measurable functions.  
+
+Ultimately there is a small extra condition beyond measurability that is needed for integrability; however, at this point we make still another restriction, and that is that the functions in question be non-negative.  In the next section we shall extend this to any (possibly negative) measurable function satisfying the extra condition to which we allude above.
 
 ## Non-negative Measurable Functions
 **Definition.** By a non-negative measurable function, we mean $f: \Omega \to \bar{\mathbb{R}}$ such that 

@@ -42,6 +42,8 @@ I hope my notes help the material of the lectures linger for you as they have fo
 
 "...so there is no way in quantum mechanics to avoid the Lebesgue integral, everything else is child's play.  We are going to develop that integral, and what follows is the preparation for that."
 
+[Click here to jump in!](/notes/measure_integration/measure/general-measure-spaces/)
+
 ## Lecture Videos
 
 {{< youtube 6ad9V8gvyBQ >}}

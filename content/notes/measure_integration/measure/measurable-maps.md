@@ -28,7 +28,9 @@ $$(M, \mathfrak{F}_M) \to (N, \mathfrak{F}_N)$$
 Note that this is the definition of continuous maps, but with "topology" replaced by "$\sigma$-algebra" and "continuous" replaced by "measurable."  One immediately sees that this is compatible with choosing a Borel $\sigma$-algebra that is made from open sets; then one may see that continuous maps are measurable (though they are not the only measurable maps).  With one extra condition, the measurable maps are in fact the ones we can integrate.
 
 ## Testing for Measurability
-**Lemma** To show that a $f$ is measurable, it suffices to check whether for all sets $A \in \mathfrak{A}$ we have $f^{-1}(A) \in \mathfrak{F}_M$ where $\mathfrak{F}_M = \sigma(\mathfrak{A})$.
+**Lemma.** To show that a function $f$ is measurable, it suffices to check whether for all sets $A \in \mathfrak{A}$ we have $f^{-1}(A) \in \mathfrak{F}_M$ where $\mathfrak{F}_N = \sigma(\mathfrak{A})$.
+
+As an example, if $\mathfrak{F}_N$ is the Borel $\sigma$-algebra, then the generating set $\mathfrak{A}$ is the collection of open sets.  Hence in particular, continuous maps are measurable.
 
 **Corollary.** 
 1. Any continuous map is measurable with respect to the Borel $\sigma$-algebras.  

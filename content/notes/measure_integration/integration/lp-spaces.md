@@ -31,7 +31,7 @@ We would like to make progress toward Hilbert and Banach spaces; to this end, le
 **Theorem.** The map $\left\|\cdot \right\|_{p}^{\text{(semi)}}: \mathscr{L}^p \to \mathbb{R}$ defined as $\left\|\cdot \right\|_{p}^{\text{(semi)}} := \left( \int \left| f \right|^p d\mu \right)^{\frac{1}{p}}$ for $p \in \mathbb{R}$ with $1 \leq p \leq \infty$ is a seminorm, satisfying:
 
 1. (positive homogeneity) $\forall \alpha \in \mathbb{C}$ we have $\left\| \alpha f \right\|_{p}^{\text{(semi)}} = \left| \alpha \right| \cdot \left\|f \right\|_{p}^{\text{(semi)}}$
-2. (Minkowski identity) $\left\|f + g \right\|_{p}^{\text{(semi)}} \leq \left\| f \right\|_{p}^{\text{(semi)}} + \left\| g \right\|_{p}^{\text{(semi)}}$
+2. (Minkowski inequality) $\left\|f + g \right\|_{p}^{\text{(semi)}} \leq \left\| f \right\|_{p}^{\text{(semi)}} + \left\| g \right\|_{p}^{\text{(semi)}}$
 3. $\left\|f \right\|_{p}^{\text{(semi)}} \geq 0$.
 
 Note that the requirement of a norm is that whenever the norm of the function is zero, the function itself is equal to zero; here we have only that whenever the seminorm is zero, the function is equal to zero *almost everywhere*. This causes means that $(\mathscr{L}^p, +, \cdot, \left\|\cdot \right\|_{p}^{\text{(semi)}})$ is not even a normed space, and hence we are not going to work with the spaces $\mathscr{L}^p$.
@@ -63,12 +63,12 @@ It remains to check that we can declare an addition and scalar multiplication, a
 **Theorem.** $(L^p(\Omega, \mathfrak{F}, \mu), +, \cdot, ||\cdot||_p)$ is a *Banach space*.
 
 **Fact.** (Hölder inequality) Provided $1 \leq p, q < \infty$ and $\frac{1}{p} + \frac{1}{q} = 1$, then
-$$\bigg\vert \int \bar{f} \cdot g \\; d\mu \bigg\vert \leq \left(\int\vert f \vert^p \\; d\mu \right) ^{\frac{1}{p}} + \left(\int\vert g \vert^q \\; d\mu \right) ^{\frac{1}{q}}. $$
+$$\bigg\vert \int \bar{f} \cdot g \\; d\mu \bigg\vert \leq \left(\int\vert f \vert^p \\; d\mu \right) ^{\frac{1}{p}} \cdot \left(\int\vert g \vert^q \\; d\mu \right) ^{\frac{1}{q}}. $$
 
 **Observation.** Letting $\langle[f], [g]\rangle := \int \bar{f} \cdot g \\; d\mu$ (which we must check for well-definition), $\langle\cdot, \cdot\rangle: L^p \times L^p \to \mathbb{C}$, we have defined a *sesquilinear inner product.*
 
 So under what conditions does this become a Cauchy inequality? As it turns out, only in the case $p=2$ do we have the Cauchy inequality:
-$$\langle[f], [g]\rangle \leq ||[f]||_2 + ||[g]||_2.$$
+$$\langle[f], [g]\rangle \leq ||[f]||_2 \cdot ||[g]||_2.$$
 
 **Corollary.** $(L^p(\Omega, \mathfrak{F}, \mu), +, \cdot, \langle\cdot|\cdot\rangle)$ is a Hilbert space.
 

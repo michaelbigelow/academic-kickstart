@@ -25,7 +25,7 @@ weight: 60
 ## Almost Everywhere
 Many statements we are going to prove hold "almost everywhere."  
 
-**Terminology.**  A condition, e.g. equality or convergence or..., is said to hold "almost everywhere" (a.e.) if it holds for all $m \in \Omega \setminus A$ for some $A$ with $\mu(A)=0$.  
+**Terminology.**  A condition, e.g. equality or convergence or..., is said to hold "almost everywhere" (a.e.) if it holds for all $\omega \in \Omega \setminus A$ for some $A$ with $\mu(A)=0$.  
 
 ## Examples
 **Definition.** Let $f: \Omega \to N$ and $g: \Omega \to N$ be maps from a measure space $(\Omega, \mathfrak{F}, \mu)$ to any naked set $N$.  Then $f =_{a.e.} g$ if and only if there exists some $A \in \mathfrak{F}$ with $\mu(A)=0$ such that for all $\omega \in \Omega \setminus A, \\; f(\omega)=g(\omega)$.

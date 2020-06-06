@@ -13,7 +13,7 @@ tags:
   - python
   - computing
 subtitle: ''
-summary: 'We introduce the Pólya Urn model and implement a simulation in Python.'
+summary: 'We refer to the Pólya Urn model and implement a simulation in Python.'
 authors: [admin]
 lastmod: '2020-05-14T21:12:05-06:00'
 featured: no
@@ -34,6 +34,8 @@ library(tidyverse)
 Pólya's Urn poses an interesting probabilistic experiment.  Below we introduce the model and implement a simulation in Python to solve an exercise from Gregory Lawler's "Introduction to Stochastic Processes."
 
 ## Definition
+[(from Lawler, Gregory F., 2006. "Introduction to Stochastic Processes.")](https://www.amazon.com/Introduction-Stochastic-Processes-Chapman-Probability/dp/158488651X)
+
 Consider an urn with balls of two colors, red and green.  Assume that initially there is one ball of each color in the urn.  At each time step, a ball is chosen at random from the urn.  If a red ball is chosen it is returned and in addition another red ball is added to the urn.  Similarly, if a green ball is chosen, it is returned together with another green ball.  Let $X_n$ denote the number of red balls in the urn after $n$ draws.  Then $X_0 =1$ and $X_n$ is a (time-inhomogeneous) Markov chain with transitions
 $$\mathbb{P} \{X_{n+1} =k+1\; |\;X_n=k \}= \frac{k}{n+2}$$
 $$\mathbb{P} \{X_{n+1} =k\; |\;X_n=k \}= \frac{n+2-k}{n+2}$$
@@ -43,10 +45,9 @@ Since this is a Markov chain, all the relevant information in $\mathfrak{F}_n$ f
 $$E(M_{n+1} \;|\; \mathfrak{F}_n) = E((n+3)^{-1}X_{n+1}\;|\;X_n)$$
 $$= \frac{1}{n+3} \left[ X_n + \frac{X_n}{n+2} \right]$$
 $$= \frac{X_n}{n+2}=M_n.$$
-[(Lawler, Gregory F., 2006. "Introduction to Stochastic Processes.")](https://www.amazon.com/Introduction-Stochastic-Processes-Chapman-Probability/dp/158488651X)
 
 ## Simulation
-We consider the Pólya Urn model, implementing the urn as a Python object.  The code for this can be found on my [GitHub](https://github.com/michaelbigelow/StochasticProcesses) for any interested readers.
+We consider the above-described Pólya Urn model, implementing the urn as a Python object.  The code for this can be found on my [GitHub](https://github.com/michaelbigelow/StochasticProcesses) for any interested readers.
 
 ```{python}
 import numpy as np

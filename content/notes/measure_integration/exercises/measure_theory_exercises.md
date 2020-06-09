@@ -102,7 +102,7 @@ Conversely, any sequence $p_1, \ldots, p_n \in [0,1]$ that has the property (a) 
 
 **Proof.**
 
-We will always be able to find at least one such set $\{p_i:i= 1, \ldots,n\}$ satisfying (a), for example by defining $p_i=\frac{1}{n}$ for $i=1,\ldots,n$ so we have $\sum_{i=1}^n \frac{1}{n}=1$. Then $P(\emptyset) = 0, P(\Omega)=1$ and we have $P(A)=\sum_{i:\omega \in A}p_i$ for any set $A \subseteq \Omega$. $\square$
+We will always be able to find at least one such set $\{p_i:i= 1, \ldots,n\}$ satisfying (a), for example by defining $\\{ {p_i} \\}=\frac{1}{n}$ for $i=1,\ldots,n$ so we have $\sum_{i=1}^n \frac{1}{n}=1$. Then $P(\emptyset) = 0, P(\Omega)=1$ and we have $P(A)=\sum_{i:\omega \in A}p_i$ for any set $A \subseteq \Omega$. $\square$
 
 ## 4. Intersection of Monotone Classes
 Prove the following lemma:

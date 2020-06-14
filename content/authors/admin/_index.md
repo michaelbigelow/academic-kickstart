@@ -76,6 +76,6 @@ email: ""
 # - Visitors
 ---
 
-In the final year of my Master of Science and Technology in data science at the University of Utah, I am becoming skilled in mathematical/statistical modeling, machine learning, and data mining, from theory to implementation using both Python and R.
+As I complete my Master of Science and Technology in data science at the University of Utah, I am both deepening my understanding of statistical theory and practicing its application using both Python and R.
 
 In addition to the MST, I am completing the Big Data Certificate through the U of U School of Computing. 

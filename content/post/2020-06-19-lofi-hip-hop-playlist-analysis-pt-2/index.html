@@ -1,0 +1,79 @@
+---
+title: Lofi Hip Hop Playlist Analysis pt.2
+author: Michael Bigelow
+date: '2020-06-19'
+slug: lofi-hip-hop-playlist-analysis-pt-2
+categories:
+  - Data Mining
+tags:
+  - computing
+  - machine learning
+  - EDA
+  - regression
+subtitle: ''
+summary: ''
+authors: [admin]
+lastmod: '2020-06-19T17:47:22-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+draft: true
+---
+
+
+
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.1
+## ✓ tidyr   1.1.1     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;caret&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     lift</code></pre>
+<pre><code>## # A tibble: 997 x 14
+##    danceability energy   key loudness  mode speechiness acousticness
+##           &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+##  1        0.717  0.193     9   -16.1      0      0.0459       0.802 
+##  2        0.698  0.239     4   -11.1      1      0.103        0.928 
+##  3        0.665  0.403     9   -10.1      1      0.214        0.322 
+##  4        0.665  0.183     9   -12.0      1      0.135        0.808 
+##  5        0.856  0.288     0   -11.7      1      0.0764       0.0691
+##  6        0.683  0.424     8    -9.16     0      0.0867       0.787 
+##  7        0.769  0.32      5   -13.3      0      0.111        0.535 
+##  8        0.725  0.28      1   -15.0      1      0.142        0.818 
+##  9        0.831  0.341     6    -9.62     0      0.12         0.929 
+## 10        0.684  0.463     0    -8.52     0      0.0843       0.417 
+## # … with 987 more rows, and 7 more variables: instrumentalness &lt;dbl&gt;,
+## #   liveness &lt;dbl&gt;, valence &lt;dbl&gt;, tempo &lt;dbl&gt;, playlist &lt;chr&gt;,
+## #   duration_s &lt;dbl&gt;, id &lt;chr&gt;</code></pre>
+<pre class="r"><code>tracks &lt;- tracks %&gt;%
+  group_by(playlist) %&gt;%
+  sample_n(size = 121) 
+tracks %&gt;%
+  summarize(count = n())</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   playlist      count
+##   &lt;chr&gt;         &lt;int&gt;
+## 1 ChilledCow      121
+## 2 Sp_LoFiBeats    121
+## 3 Sp_LushLoFi     121
+## 4 StrangeFruits   121</code></pre>
+<pre class="r"><code>rf1 &lt;- ranger(playlist ~ .,
+              data = tracks,
+              importance = &quot;impurity&quot;)</code></pre>
+<pre class="r"><code>rf1$prediction.error</code></pre>
+<pre><code>## [1] 0.6219008</code></pre>

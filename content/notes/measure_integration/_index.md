@@ -19,8 +19,6 @@ menu:
   docs:
     parent: Introduction
     weight: 5
-    
-weight: 5
 ---
 
 The following notes are based on two excellent lectures by Dr. Frederic Schuller, augmented where appropriate for clarity.  Scroll to the bottom of this page to view the YouTube videos of the lectures.

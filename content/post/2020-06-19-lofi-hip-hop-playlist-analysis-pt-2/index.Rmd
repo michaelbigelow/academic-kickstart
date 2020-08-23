@@ -1,0 +1,86 @@
+---
+title: Lofi Hip Hop Playlist Analysis pt.2
+author: Michael Bigelow
+date: '2020-06-19'
+slug: lofi-hip-hop-playlist-analysis-pt-2
+categories:
+  - Data Mining
+tags:
+  - computing
+  - machine learning
+  - EDA
+  - regression
+subtitle: ''
+summary: ''
+authors: [admin]
+lastmod: '2020-06-19T17:47:22-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+draft: true
+---
+
+```{r setup, echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(rmarkdown)
+library(GGally)
+library(FactoMineR)
+library(factoextra)
+library(ggfortify)
+library(cluster)
+library(nnet)
+library(caret)
+library(ranger)
+```
+
+
+```{r, echo=FALSE, warning=FALSE}
+SFLHHtracks <- read_csv("../../../static/data/SFLHHtracks", 
+                        col_types = cols(`Unnamed: 0` = col_skip(), 
+                                         X1 = col_skip()))
+LLtracks <- read_csv("../../../static/data/LLtracks", 
+                     col_types = cols(`Unnamed: 0` = col_skip(), 
+                                      X1 = col_skip()))
+LFBtracks <- read_csv("../../../static/data/LFBtracks", 
+                      col_types = cols(`Unnamed: 0` = col_skip(),
+                                       X1 = col_skip()))
+LHHMtracks <- read_csv("../../../static/data/LHHMtracks", 
+                       col_types = cols(`Unnamed: 0` = col_skip(),
+                                        X1 = col_skip()))
+```
+
+```{r, echo=FALSE}
+tracks <- rbind(LHHMtracks %>% mutate(playlist = "ChilledCow"), 
+                SFLHHtracks %>% mutate(playlist = "StrangeFruits"),
+                LFBtracks %>% mutate(playlist = "Sp_LoFiBeats"),
+                LLtracks %>% mutate(playlist = "Sp_LushLoFi")) %>% 
+          mutate(duration_s = duration_ms / 1000) %>%
+          distinct() %>%
+          select(-c(id_1, type, uri, track_href, analysis_url, time_signature, duration_ms, id), id) 
+
+tracks
+```
+
+```{r}
+tracks <- tracks %>%
+  group_by(playlist) %>%
+  sample_n(size = 121) 
+tracks %>%
+  summarize(count = n())
+```
+
+```{r}
+rf1 <- ranger(playlist ~ .,
+              data = tracks,
+              importance = "impurity")
+```
+
+```{r}
+rf1$prediction.error
+```
+

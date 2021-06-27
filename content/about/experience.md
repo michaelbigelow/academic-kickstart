@@ -17,6 +17,30 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+[[experience]]
+  title = "Data Scientist"
+  company = "Dominion Energy - Wexpro"
+  company_url = ""
+  location = "Salt Lake City, UT"
+  date_start = "2020-06-15"
+  date_end = "2021-07-01"
+  description = """
+  Continued data science work supporting all aspects of oil and gas exploration and production.
+  """
+
+
+[[experience]]
+  title = "Data Science Intern"
+  company = "Dominion Energy - Wexpro"
+  company_url = ""
+  location = "Salt Lake City, UT"
+  date_start = "2020-06-15"
+  date_end = "2021-07-01"
+  description = """
+  Completed master's project consisting of a Shiny webapp interface for drilling engineers to optimize rate of penetration through diverse lithologic formations in the Vermillion Basin of Wyoming by tuning drill rig parameters.  The twofold approach first used Gaussian mixture model-based clustering similar to Kristjansson et al. to find historically optimal rig control parameters, then applied allowed the drilling engineer to adjust drilling parameter slider bars away from the historic optimum and view a plot of a random forest-predicted changes in rate of penetration to further improve drilling speed.
+  """
+
   
 [[experience]]
   title = "Data Science Intern"
@@ -24,10 +48,9 @@ date_format = "Jan 2006"
   company_url = ""
   location = "Salt Lake City, UT"
   date_start = "2020-01-01"
-  date_end = ""
+  date_end = "2020-05-01"
   description = """
-  Master's project in partnership with Intermountain's data science team: 
-  - using data mining and statistics to construct informative disease-age profiles in order to identify factors contributing to high risk in each 
+  Used data mining/statistics to construct informative disease-age profiles in order to identify factors contributing to high risk in each 
   """
 
 [[experience]]

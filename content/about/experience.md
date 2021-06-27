@@ -38,7 +38,7 @@ date_format = "Jan 2006"
   date_start = "2020-06-15"
   date_end = "2021-07-01"
   description = """
-  Completed master's project consisting of a Shiny webapp interface for drilling engineers to optimize rate of penetration through diverse lithologic formations in the Vermillion Basin of Wyoming by tuning drill rig parameters.  The twofold approach first used Gaussian mixture model-based clustering similar to Kristjansson et al. to find historically optimal rig control parameters, then applied allowed the drilling engineer to adjust drilling parameter slider bars away from the historic optimum and view a plot of a random forest-predicted changes in rate of penetration to further improve drilling speed.
+  Completed master's project consisting of a Shiny webapp interface for drilling engineers to increase rate of penetration through diverse lithologic formations in the Vermillion Basin of Wyoming by tuning drill rig parameters.  The twofold approach first uses Gaussian mixture model-based clustering similar to Kristjansson et al. to find historic rig control parameters associated with periods of fastest drilling through the user-selected formation for a subset of wells. Next, the drilling engineer is presented with slider bars that allow him to adjust drilling parameter settings away from the historic optimum to previously-untested configurations and view a plot of a random forest-predicted changes in rate of penetration to further improve drilling speed.
   """
 
   
@@ -70,8 +70,8 @@ date_format = "Jan 2006"
   company_url = ""
   location = "Salt Lake City, UT"
   date_start = "2012-06-01"
-  date_end = ""
+  date_end = "2020-04-01"
   description = """
-  Provide tutoring services on an as-needed basis for all levels of math from algebra 2 through calculus, linear algebra, and beyond.
+  Provided tutoring services on an as-needed basis for all levels of math from algebra 2 through calculus, linear algebra, and beyond.
   """
 +++
